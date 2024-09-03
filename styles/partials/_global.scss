@@ -1,0 +1,13 @@
+@use './typography';
+@use './mixins' as *;
+@use './variables' as *;
+
+
+* {
+    padding: 0;
+    margin: 0;
+    outline:none;
+    box-sizing: border-box;
+    overflow-x:hidden;
+    
+}
