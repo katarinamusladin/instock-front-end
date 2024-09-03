@@ -22,7 +22,7 @@
 
 h1 {
     font-size: 1.75rem;
-    line-height: 36px; 
+    line-height: 2.25rem; 
     font-family: "Titillium Web", 'Times New Roman', Times, serif;
     font-weight: 600;
     color: $primary-black;
@@ -49,15 +49,15 @@ h2 {
 }
 
 h3 {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
     font-family: 'Titillium Web', 'Times New Roman', Times, serif;
     font-weight: 600;
     color: $primary-black;
 
     @include tablet {
-        font-size: 14px;
-        line-height: 22px;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
     }
 
 }
