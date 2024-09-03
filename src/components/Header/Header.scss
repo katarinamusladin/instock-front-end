@@ -1,20 +1,102 @@
-@use '../../styles/partials/global' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/typography' as *;
-
-
-
-* {
-  padding: 0;
-  margin: 0;
-  outline:none;
-  box-sizing: border-box;
-  overflow-x:hidden;
-  
-}
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
 
 .navbar {
+  height: 8.5rem;
   display: flex;
   background-color: $background-header;
+  padding-bottom: 4.0625rem;
+  font-family: "Titillium Web";
+  font-weight: 600;
 
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include tablet {
+      height: 5.75rem;
+      flex-direction: row;
+      margin: 0 1%;
+    }
+    @include desktop {
+      margin: 0 8%;
+    }
+  }
+  &__logo-container {
+    @include tablet {
+      margin-left: 1.5625rem;
+    }
+  }
+  &__img {
+    width: 8.125rem;
+    margin-top: 1.5625rem;
+    @include tablet {
+      margin-top: 0.625rem;
+    }
+  }
+  &__links {
+    width: 100%;
+
+    @include tablet {
+      width: 28%;
+    }
+    @include desktop {
+      width: 25%;
+    }
+  }
+  &__link {
+    margin: 0 0.9375rem;
+  }
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin-top: 1rem;
+    @include tablet {
+      margin: 0.625rem 0 0 0;
+      width: 100%;
+    }
+  }
+  &__warehouses {
+    color: $primary-white;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 50%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    @include tablet {
+      width: 30%;
+      margin: 0;
+    }
+  }
+  &__inventory {
+    color: $primary-white;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 50%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    @include tablet {
+      width: 30%;
+      margin: 0;
+    }
+  }
+  &__warehouses--active,
+  &__inventory--active {
+    font-weight: bold;
+    background-color: $primary-black;
+    color: $primary-white;
+    border-radius: 1.25rem;
+    padding: 0.6rem;
+  }
+}
+
+a:hover {
+  text-decoration: underline;
 }
