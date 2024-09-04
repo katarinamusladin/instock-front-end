@@ -3,20 +3,17 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-.footer {
-    background-color: $background-page;
+.btn {
+    @include blue-btn-white-text;
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    height: $mobile-btn-h;
 
-    &__text {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-
+    &--circle {
+        min-width: $mobile-btn-h;
+        min-height: $mobile-btn-h;
+        max-height: $mobile-btn-h;
+        max-width: $mobile-btn-h;
     }
 }

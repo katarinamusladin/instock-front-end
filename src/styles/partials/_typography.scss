@@ -22,7 +22,7 @@
 
 h1 {
     font-size: 1.75rem;
-    line-height: 2.25rem; 
+    line-height: 2.25rem;
     font-family: "Titillium Web", 'Times New Roman', Times, serif;
     font-weight: 600;
     color: $primary-black;
@@ -64,7 +64,7 @@ h3 {
 
 h4 {
     font-size: 0.6875rem;
-    line-height: 1rem; 
+    line-height: 1rem;
     font-family: 'Titillium Web', 'Times New Roman', Times, serif;
     font-weight: 600;
     color: $secondary-slate;
@@ -75,4 +75,16 @@ h4 {
     }
 }
 
+//note: this is p3 the small text, p1 and p2 (large and med) are added in as mixins
+p {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-family: 'Titillium Web', 'Times New Roman', Times, serif;
+    font-weight: 400;
+    color: $primary-black;
 
+    @include tablet {
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+    }
+}

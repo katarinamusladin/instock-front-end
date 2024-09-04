@@ -1,0 +1,34 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.home {
+    &__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: $mobile-margin;
+        background-color: $background-page;
+
+        @include tablet {
+            padding: 0 $tablet-margin;
+        }
+
+        //TODO: INCLUDE DESKTOP MARGINS
+    }
+
+
+    &__details {
+        padding: $mobile-margin;
+        background-color: $primary-white;
+        border-radius: 0.25rem;
+        position: relative;
+        top: -2rem;
+
+        @include tablet {
+            padding: $tablet-margin;
+        }
+    }
+}
