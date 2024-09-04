@@ -11,3 +11,48 @@
     @content;
   }
 }
+
+/*typography mixins*/
+@mixin p1 {
+  font-size: .9375rem;
+  line-height: 1.625rem;
+  font-family: 'Titillium Web', 'Times New Roman', Times, serif;
+  font-weight: 400;
+  color: $primary-black;
+
+  @include tablet {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+}
+
+@mixin p2 {
+  font-size: .8125rem;
+  line-height: 1.25rem;
+  font-family: 'Titillium Web', 'Times New Roman', Times, serif;
+  font-weight: 400;
+  color: $primary-black;
+
+  @include tablet {
+    font-size: .875rem;
+    line-height: 1.375rem;
+  }
+}
+
+/*button design mixins*/
+@mixin blue-btn-white-text {
+  background-color: $primary-indigo;
+  color: $primary-white;
+  border-radius: 1.25rem;
+  border: 0.0625rem solid $primary-indigo;
+  padding: 0 1rem;
+}
+
+/*divider mixins*/
+@mixin divider-bottom {
+  border-bottom: .0625rem solid $secondary-cloud;
+}
+
+@mixin divider-right-thick {
+  border-right: .125rem solid $secondary-cloud;
+}
