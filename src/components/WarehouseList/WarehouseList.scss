@@ -6,6 +6,7 @@
 p {
   font-family: "Titillium Web";
   padding-left: 1rem;
+  
 }
 .warehouses {
   position: relative;
@@ -60,6 +61,9 @@ p {
 
     @include tablet {
       background-color: $background-page;
+      display:none;
+      
+      
     }
     &--icon {
       display: none;
@@ -73,6 +77,33 @@ p {
     }
   }
 
+  &__mobile-header1 {
+    display: flex;
+    color: $secondary-slate;
+    background-color: $primary-white;
+    text-transform: uppercase;
+    width: 100%;
+    padding-left: 1.7rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      background-color: $background-page;
+      // display:none;
+      
+      
+    }
+    &--icon {
+      display: none;
+      @include tablet {
+        margin-left: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        display: inline-block;
+        margin-top: 0.2rem;
+      }
+    }
+  }
   &__content {
     width: auto;
     box-sizing: border-box;
@@ -134,6 +165,7 @@ p {
       justify-content: space-between;
       padding: 0.9375rem 4%;
       margin: 0;
+
     }
     &-title {
       font-weight: 600;
@@ -212,5 +244,14 @@ p {
 .active {
   @media (max-width: 47.9375rem) {
     display: none;
+  }
+}
+.header__appear {
+  display: none; 
+}
+
+@media (min-width: 768px) { 
+  .header__appear {
+    display: block; 
   }
 }
