@@ -3,7 +3,7 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-.home {
+.warehouse-details {
     &__container {
         width: 100%;
         display: flex;
@@ -19,7 +19,8 @@
         //TODO: INCLUDE DESKTOP MARGINS
     }
 
-    &__form {
+
+    &__details {
         @include page-content;
     }
 }

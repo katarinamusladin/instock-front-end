@@ -1,8 +1,6 @@
 import "./Details.scss";
-import Button from "../Button/Button";
 import backIcon from "../../assets/images/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/images/icons/edit-white-24px.svg";
-import { Link, NavLink } from "react-router-dom";
 import PageHeader from "../PageHeader/PageHeader";
 
 export default function Details() {
@@ -12,15 +10,17 @@ export default function Details() {
 		contactName: "placeholder text",
 		contactInfo: "placeholder text",
 	};
-
+	//TODO: CHANGE PATH if necessary!
 	return (
 		<section className="details">
 			<PageHeader
-				btn="yes"
+				path1="/home"
 				icon={backIcon}
 				text="Washington"
 				altText="back key icon"
+				btn="yes"
 				btnIcon={editIcon}
+				path2="/warehouses/:warehouseId/edit"
 			/>
 			<div className="details__content">
 				<div className="details__address">

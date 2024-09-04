@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage.jsx";
+import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 
 function App() {
@@ -14,11 +15,11 @@ function App() {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/home" element={<Navigate to="/" />} />
 					<Route path="/warehouses" element={<Navigate to="/" />} />
-					{/* <Route
+					<Route
 						path="/warehouses/:warehouseId"
 						element={<WarehouseDetailsPage />}
 					/>
-					<Route
+					{/* <Route
 						path="/warehouses/:warehouseId/edit"
 						element={<WarehouseEditPage />}
 					/>
