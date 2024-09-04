@@ -1,0 +1,120 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+p{
+  padding-left: 1rem;
+}
+.warehouses {
+  padding-left: 1rem;
+  &__item {
+      padding: 1rem 0;
+      border-bottom: .0938rem solid $secondary-slate;
+      @include tablet {
+          @include flex-it(nowrap, space-between, normal, row);
+      }
+
+      &:last-of-type {
+          border-bottom: none;
+      }
+
+      &:hover {
+          background-color: grey;
+      }
+  }
+
+  &__text-box {
+    
+      @include flex-it(nowrap, flex-start, normal, row);
+      @include tablet {
+          width: 90%;
+      }
+  }
+
+  &__column {
+      @include flex-it(wrap, flex-start, normal, column);
+      width: 45%;
+      gap: 1rem;
+
+      @include tablet {
+          @include flex-it(nowrap, flex-start, normal, row);
+          width: 50%;
+          gap: 0;
+      }
+  }
+
+  &__mobile-header {
+      display: block;
+      color: $secondary-slate;
+      background-color: $primary-white;
+      text-transform: uppercase;
+      width: 100%;
+      padding-left: 1.7rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      
+
+     @include tablet{
+      background-color: $background-page;
+     }
+  }
+
+  &__content {
+      width: auto;
+      box-sizing: border-box;
+      
+      &--short {
+          @include tablet {
+              width: 42%;
+              
+          }
+      }
+      &--long {
+          @include tablet {
+              width: 58%;
+          }
+      }
+  }
+
+  &__action {
+    
+      @include flex-it(nowrap, space-between, normal, row);
+      @include tablet {
+          display: inline-block;
+          width: 10%;
+      }
+  }
+
+  &__icon {
+    padding-left: 1rem;
+      height: 1.8rem;
+      margin: 1rem 2rem 0 0;
+      @include tablet {
+        padding-left: 0rem;
+          margin: 1rem 0.6rem 0 0;
+      }
+      @include desktop {
+          margin: 1rem 2rem 0 0;
+      }
+
+      &:hover {
+          cursor: pointer;
+      }
+  }
+
+  &__link {
+      margin: 0;
+      padding: 0;
+      width: 1.8rem;
+      display: inline-block;
+  }
+
+}
+
+.active {
+  @media (max-width: 767px) {
+    display: none;
+  }
+
+}
