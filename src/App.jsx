@@ -14,7 +14,7 @@ function App() {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/home" element={<Navigate to="/" />} />
 					<Route path="/warehouses" element={<Navigate to="/" />} />
-					<Route
+					{/* <Route
 						path="/warehouses/:warehouseId"
 						element={<WarehouseDetailsPage />}
 					/>
@@ -38,11 +38,11 @@ function App() {
 					<Route
 						path="/inventory/:inventoryId/add"
 						element={<InventorAddPage />}
-					/>
+					/> */}
 					<Route path="/notfound" element={<NotFoundPage />} />
 					<Route path="*" element={<Navigate to="/notfound" />} />
-					<Footer />
 				</Routes>
+				<Footer />
 			</BrowserRouter>
 		</>
 	);

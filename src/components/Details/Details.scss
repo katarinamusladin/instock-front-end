@@ -2,3 +2,25 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
+
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__content {
+        @extend .details;
+        padding: $mobile-margin;
+        gap: $mobile-margin;
+    }
+
+    &__contact {
+        @extend .details;
+        flex-direction: row;
+    }
+
+    &__content-header {
+        color: $secondary-slate;
+    }
+}
