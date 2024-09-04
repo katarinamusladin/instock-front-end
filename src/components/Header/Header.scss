@@ -87,7 +87,13 @@
       margin: 0;
     }
   }
-  &__warehouses--active,
+  &__warehouses--active {
+    font-weight: bold;
+    background-color: $primary-black;
+    color: $primary-white;
+    border-radius: 1.25rem;
+    padding: 0.6rem;
+  }
   &__inventory--active {
     font-weight: bold;
     background-color: $primary-black;
