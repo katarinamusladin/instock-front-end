@@ -11,7 +11,14 @@
         justify-content: space-between;
         padding: $mobile-margin;
         background-color: $background-page;
+
+        @include tablet {
+            padding: 0 $tablet-margin;
+        }
+
+        //TODO: INCLUDE DESKTOP MARGINS
     }
+
 
     &__details {
         padding: $mobile-margin;
@@ -19,5 +26,9 @@
         border-radius: 0.25rem;
         position: relative;
         top: -2rem;
+
+        @include tablet {
+            padding: $tablet-margin;
+        }
     }
 }

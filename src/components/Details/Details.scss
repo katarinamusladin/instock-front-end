@@ -7,17 +7,36 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     &__content {
         @extend .details;
-        padding: $mobile-margin;
-        gap: $mobile-margin;
+        padding: $mobile-margin 0;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__address {
+        @include tablet {
+            @include divider-right-thick;
+            width: 50%;
+        }
+
+        @include desktop {
+            width: 55%;
+        }
     }
 
     &__contact {
         @extend .details;
         flex-direction: row;
+
+        @include tablet {
+            padding: 0 $tablet-margin;
+            gap: $tablet-margin;
+        }
     }
 
     &__content-header {

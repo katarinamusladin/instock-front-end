@@ -32,8 +32,8 @@ export default function Details() {
 						<h3 className="details__content-header">CONTACT NAME</h3>
 						<p>{details.contactName}</p>
 					</div>
-					<div className="details__content-header">
-						<h3>CONTACT INFO</h3>
+					<div>
+						<h3 className="details__content-header">CONTACT INFO</h3>
 						<p>{details.contactInfo}</p>
 					</div>
 				</div>
