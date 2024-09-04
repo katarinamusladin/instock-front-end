@@ -78,3 +78,11 @@
 @mixin divider-right-thick {
   border-right: .125rem solid $secondary-cloud;
 }
+
+@mixin flex-it ($wrap: nowrap, $justify: flex-start, $align: stretch, $direction: row) {
+  display: flex;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}

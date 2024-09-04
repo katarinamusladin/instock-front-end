@@ -1,0 +1,216 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+p {
+  font-family: "Titillium Web";
+  padding-left: 1rem;
+}
+.warehouses {
+  position: relative;
+  top: -2rem;
+  background-color: $primary-white;
+  margin: 1rem;
+
+  &__item {
+    padding: 1rem 0;
+    border-bottom: 0.0938rem solid $secondary-slate;
+    @include tablet {
+      @include flex-it(nowrap, space-between, normal, row);
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: $secondary-cloud;
+    }
+  }
+
+  &__text-box {
+    @include flex-it(nowrap, flex-start, normal, row);
+    @include tablet {
+      width: 90%;
+    }
+  }
+
+  &__column {
+    @include flex-it(wrap, flex-start, normal, column);
+    width: 45%;
+    gap: 1rem;
+
+    @include tablet {
+      @include flex-it(nowrap, flex-start, normal, row);
+      width: 50%;
+      gap: 0;
+    }
+  }
+
+  &__mobile-header {
+    display: flex;
+    color: $secondary-slate;
+    background-color: $primary-white;
+    text-transform: uppercase;
+    width: 100%;
+    padding-left: 1.7rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      background-color: $background-page;
+    }
+    &--icon {
+      display: none;
+      @include tablet {
+        margin-left: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        display: inline-block;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+
+  &__content {
+    width: auto;
+    box-sizing: border-box;
+
+    &--short {
+      @include tablet {
+        width: 42%;
+      }
+    }
+    &--long {
+      @include tablet {
+        width: 58%;
+      }
+    }
+  }
+
+  &__action {
+    @include flex-it(nowrap, space-between, normal, row);
+    @include tablet {
+      display: inline-block;
+      width: 10%;
+    }
+  }
+
+  &__icon {
+    padding-left: 1rem;
+    height: 1.8rem;
+    margin: 1rem 2rem 0 0;
+    @include tablet {
+      padding-left: 0rem;
+      margin: 1rem 0.6rem 0 0;
+    }
+    @include desktop {
+      margin: 1rem 2rem 0 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__link {
+    margin: 0;
+    padding: 0;
+    width: 1.8rem;
+    display: inline-block;
+  }
+
+  //title part
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.9375rem 7%;
+    margin: 0;
+    font-family: "Titillium Web";
+
+    @include tablet {
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9375rem 4%;
+      margin: 0;
+    }
+    &-title {
+      font-weight: 600;
+      color: $primary-black;
+      margin: 0.75rem 0;
+
+      @include tablet {
+        margin: 0.625rem 0 0 0;
+      }
+    }
+    &-container {
+      width: 100%;
+
+      @include tablet {
+        width: 57%;
+      }
+      @include desktop {
+        width: 48%;
+      }
+    }
+    &-form {
+      padding-bottom: 0.3125rem;
+
+      @include tablet {
+        display: flex;
+        height: 2.375rem;
+        margin-top: 0.625rem;
+        justify-content: flex-end;
+      }
+      &-search {
+        background-image: url("../../assets/images/icons/search-24px.svg");
+        background-repeat: no-repeat;
+        background-position: 94%;
+        border-radius: 1.25rem;
+        border: 0.0625rem solid $secondary-cloud;
+        padding: 0.4375rem 1rem;
+        width: stretch;
+        margin-bottom: 0.9375rem;
+        font-family: "Titillium Web";
+        width: 100%;
+
+        &:focus {
+          outline: none;
+          border: 0.0625rem solid $primary-indigo;
+        }
+
+        @include tablet {
+          margin: 0 0.9375rem 0 0;
+          width: 50%;
+        }
+      }
+      &-button {
+        background-color: $primary-indigo;
+        color: $primary-white;
+        width: stretch;
+        border-radius: 1.25rem;
+        border: none;
+        font-family: "Titillium Web";
+        padding: 0 1rem;
+        margin-bottom: 0.3125rem;
+        height: 2.25rem;
+        width: 100%;
+
+        @include tablet {
+          height: 2.375rem;
+          width: 10.3125rem;
+        }
+        &:hover {
+          background-color: $primary-black;
+        }
+      }
+    }
+  }
+}
+
+.active {
+  @media (max-width: 47.9375rem) {
+    display: none;
+  }
+}
