@@ -41,7 +41,6 @@ function App() {
 					/>
 					<Route path="/notfound" element={<NotFoundPage />} />
 					<Route path="*" element={<Navigate to="/notfound" />} />
-					<Header />
 					<Footer />
 				</Routes>
 			</BrowserRouter>
