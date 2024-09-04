@@ -16,4 +16,8 @@
         max-height: $mobile-btn-h;
         max-width: $mobile-btn-h;
     }
+
+    &--nav {
+        @include white-btn;
+    }
 }
