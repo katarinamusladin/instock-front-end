@@ -1,27 +1,41 @@
 import "./Header.scss";
 import Logo from "../../assets/images/Logo/InStock-Logo.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <div className="navbar">
       <div className="navbar__container">
         <div className="navbar__logo-container">
-          <a href="#">
+          <NavLink to="/">
             <img src={Logo} className="navbar__img" alt="Instock" />
-          </a>
+          </NavLink>
         </div>
         <div className="navbar__links">
           <ul className="navbar__list">
             <li>
-              <a href="#" className="navbar__link navbar__warehouses">
+              <NavLink
+                to="/warehouses"
+                className={({ isActive }) =>
+                  isActive
+                    ? "navbar__link navbar__warehouses navbar__warehouses--active"
+                    : "navbar__link navbar__warehouses"
+                }
+              >
                 Warehouses
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="#" className="navbar__link navbar__inventory">
+              <NavLink
+                to="/inventory"
+                className={({ isActive }) =>
+                  isActive
+                    ? "navbar__link navbar__inventory navbar__inventory--active"
+                    : "navbar__link navbar__inventory"
+                }
+              >
                 Inventory
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
