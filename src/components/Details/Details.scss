@@ -11,6 +11,7 @@
     &__content {
         @extend .details;
         padding: $mobile-margin 0;
+        gap: $mobile-margin*2;
 
         @include tablet {
             flex-direction: row;
@@ -32,6 +33,7 @@
     &__contact {
         @extend .details;
         flex-direction: row;
+        justify-content: space-between;
 
         @include tablet {
             padding: 0 $tablet-margin;
