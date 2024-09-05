@@ -52,6 +52,7 @@ p {
     @include tablet {
       width: 90%;
     }
+    
   }
 
   &__column {
@@ -80,9 +81,7 @@ p {
       background-color: $background-page;
       display: none;
     }
-    &:hover {
-      pointer-events: none;
-    }
+   
     &--icon {
       display: none;
       @include tablet {
@@ -278,12 +277,11 @@ p {
     display: none;
   }
 }
+
 .header__appear {
   display: none;
-}
-
-@media (min-width: 768px) {
-  .header__appear {
-    display: block;
+  @include tablet {
+    display:block;
   }
 }
+
