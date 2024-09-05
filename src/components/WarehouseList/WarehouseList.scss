@@ -32,6 +32,7 @@ p {
 
   &__item {
     cursor: pointer;
+
     padding: 1rem 0;
     border-bottom: 0.0938rem solid $secondary-slate;
     @include tablet {
@@ -52,8 +53,6 @@ p {
     @include tablet {
       width: 90%;
     }
-    
-    
   }
 
   &__column {
@@ -82,7 +81,7 @@ p {
       background-color: $background-page;
       display: none;
     }
-   
+
     &--icon {
       display: none;
       @include tablet {
@@ -282,7 +281,6 @@ p {
 .header__appear {
   display: none;
   @include tablet {
-    display:block;
+    display: block;
   }
 }
-

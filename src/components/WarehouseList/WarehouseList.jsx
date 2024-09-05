@@ -50,12 +50,12 @@ function WarehouseList() {
               <div className="warehouses__content warehouses__content--short">
                 <h3 className="warehouses__mobile-header">Warehouse</h3>
                 <div className="warehouses__name-wrapper">
-                <p className="warehouses__name">{warehouse.warehouse_name}</p>
-                <img
-                  src={arrowRight}
-                  alt="Arrow Right"
-                  className="warehouses__name--icon"
-                />
+                  <p className="warehouses__name">{warehouse.warehouse_name}</p>
+                  <img
+                    src={arrowRight}
+                    alt="Arrow Right"
+                    className="warehouses__name--icon"
+                  />
                 </div>
               </div>
               <div className="warehouses__content warehouses__content--long">
