@@ -24,7 +24,8 @@ function WarehouseList() {
 
   return (
     <div className="warehouses">
-      <SearchHeader />
+      <SearchHeader 
+      title = "Warehouses"/>
       <WarehouseHeaderList />
 
       {/* Warehouse List Section  */}

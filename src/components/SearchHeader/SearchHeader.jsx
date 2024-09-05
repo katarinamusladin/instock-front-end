@@ -1,9 +1,9 @@
 import "./SearchHeader.scss";
 
-function SearchHeader() {
+function SearchHeader({title}) {
   return (
     <div className="warehouses__header">
-      <h1 className="warehouses__header-title">Warehouses</h1>
+      <h1 className="warehouses__header-title">{title}</h1>
       <div className="warehouses__header-container">
         <form className="warehouses__header-form">
           <input
