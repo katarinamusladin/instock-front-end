@@ -6,6 +6,7 @@ import arrowRight from "../../assets/images/icons/chevron_right-24px.svg";
 import "./WarehouseList.scss";
 import { Link } from "react-router-dom";
 import WarehouseHeaderList from "../WarehouseHeaderList/WarehouseHeaderList";
+import SearchHeader from "../SearchHeader/SearchHeader";
 
 function WarehouseList() {
   const [warehouses, setWarehouses] = useState([]);
@@ -23,23 +24,7 @@ function WarehouseList() {
 
   return (
     <div className="warehouses">
-      <div className="warehouses__header">
-        <h1 className="warehouses__header-title">Warehouses</h1>
-        <div className="warehouses__header-container">
-          <form className="warehouses__header-form">
-            <input
-              type="search"
-              name="search"
-              className="warehouses__header-form-search"
-              placeholder="Search..."
-            />
-            <button className="warehouses__header-form-button">
-              + Add New Warehouse
-            </button>
-          </form>
-        </div>
-      </div>
-
+      <SearchHeader />
       <WarehouseHeaderList />
 
       {/* Warehouse List Section  */}
