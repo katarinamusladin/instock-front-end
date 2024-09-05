@@ -36,16 +36,18 @@ p {
     padding: 1rem 0;
     border-bottom: 0.0938rem solid $secondary-slate;
     @include tablet {
+      
       @include flex-it(nowrap, space-between, normal, row);
+      &:hover {
+        background-color: rgba($primary-indigo, 0.1);
+      }
     }
 
     &:last-of-type {
       border-bottom: none;
     }
 
-    &:hover {
-      background-color: rgba($primary-indigo, 0.1);
-    }
+    
   }
 
   &__text-box {
