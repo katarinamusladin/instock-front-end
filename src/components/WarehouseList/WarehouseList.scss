@@ -7,6 +7,7 @@ p {
   font-family: "Titillium Web";
   padding-left: 1rem;
   
+  
 }
 .warehouses {
   position: relative;
@@ -14,7 +15,12 @@ p {
   background-color: $primary-white;
   margin: 1rem;
 
+  &__name {
+    color:$primary-indigo;
+    font-weight:600;
+  }
   &__item {
+    cursor: pointer;
     padding: 1rem 0;
     border-bottom: 0.0938rem solid $secondary-slate;
     @include tablet {
@@ -26,7 +32,7 @@ p {
     }
 
     &:hover {
-      background-color: $secondary-cloud;
+      background-color: rgba($primary-indigo, 0.1);
     }
   }
 
@@ -65,6 +71,9 @@ p {
       
       
     }
+    &:hover {
+      pointer-events: none;
+    }
     &--icon {
       display: none;
       @include tablet {
@@ -89,6 +98,7 @@ p {
 
     @include tablet {
       background-color: $background-page;
+      font-size: 0.6rem;
       // display:none;
       
       
@@ -239,6 +249,22 @@ p {
       }
     }
   }
+
+  &__item1 {
+    padding: 1rem 0;
+    border-bottom: 0.0938rem solid $secondary-slate;
+    @include tablet {
+      @include flex-it(nowrap, space-between, normal, row);
+    }
+  
+    &:last-of-type {
+      border-bottom: none;
+    }
+  
+    &:hover {
+      pointer-events: none;
+    }
+  }
 }
 
 .active {
@@ -253,5 +279,6 @@ p {
 @media (min-width: 768px) { 
   .header__appear {
     display: block; 
+    
   }
 }

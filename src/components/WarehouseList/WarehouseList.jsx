@@ -4,13 +4,16 @@ import editIcon from "../../assets/images/icons/edit-24px.svg";
 import Arrows from "../../assets/images/icons/sort-24px.svg";
 import "./WarehouseList.scss";
 import { Link } from "react-router-dom";
-import WarehouseHeader from "./WarehouseHeader";
+import WarehouseHeaderList from "../WarehouseHeaderList/WarehouseHeaderList";
 
 function WarehouseList() {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+  const port = import.meta.env.VITE_PORT;
+  const endpoint = import.meta.env.VITE_BASE_ENDPOINT;
+  const apiUrl = `${baseUrl}:${port}/${endpoint}`;
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => setWarehouses(data))
@@ -36,7 +39,7 @@ function WarehouseList() {
         </div>
       </div>
 
-      <WarehouseHeader />
+      <WarehouseHeaderList />
 
       {/* Warehouse List Section  */}
       {warehouses.map((warehouse) => (
@@ -52,7 +55,7 @@ function WarehouseList() {
                     className="warehouses__mobile-header--icon"
                   />
                 </h3>
-                <p>{warehouse.warehouse_name}</p>
+                <p className="warehouses__name">{warehouse.warehouse_name}</p>
               </div>
               <div className="warehouses__content warehouses__content--long">
                 <h3 className="warehouses__mobile-header">

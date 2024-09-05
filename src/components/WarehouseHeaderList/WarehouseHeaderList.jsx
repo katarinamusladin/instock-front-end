@@ -1,11 +1,11 @@
 import React from 'react';
-import Arrows from '../../assets/images/icons/sort-24px.svg'; // Update path if needed
-import './WarehouseList.scss';
+import Arrows from '../../assets/images/icons/sort-24px.svg'; 
+import '../WarehouseList/WarehouseList.scss';
 
-function WarehouseHeader() {
+function WarehouseHeaderList() {
   return (
     <div className="header__appear">
-      <div className="warehouses__item">
+      <div className="warehouses__item1">
         <div className="warehouses__text-box">
           <div className="warehouses__column">
             <div className="warehouses__content warehouses__content--short">
@@ -60,4 +60,4 @@ function WarehouseHeader() {
   );
 }
 
-export default WarehouseHeader;
+export default WarehouseHeaderList;
