@@ -5,7 +5,7 @@ import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
-
+import InventoryList from "./components/InventoryList/InventoryList.jsx";
 function App() {
 	return (
 		<>
@@ -19,6 +19,7 @@ function App() {
 						path="/warehouses/:warehouseId"
 						element={<WarehouseDetailsPage />}
 					/>
+					<Route path="/inventory" element={<InventoryList />} />
 					{/* <Route
 						path="/warehouses/:warehouseId/edit"
 						element={<WarehouseEditPage />}
@@ -27,7 +28,6 @@ function App() {
 						path="/warehouses/:warehouseId/add"
 						element={<WarehouseAddPage />}
 					/>
-					<Route path="/inventory" element={<InventoryPage />} />
 					<Route
 						path="/inventory/:inventoryId"
 						element={<InventoryItemPage />}

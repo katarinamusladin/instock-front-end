@@ -13,10 +13,20 @@ p {
   top: -2rem;
   background-color: $primary-white;
   margin: 1rem;
+  @include tablet {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  @include desktop {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
 
   &__name-wrapper {
     display: flex;
     align-items: center;
+    
   }
 
   &__name {
@@ -60,7 +70,7 @@ p {
   &__column {
     @include flex-it(wrap, flex-start, normal, column);
     width: 45%;
-    gap: 1rem;
+    
 
     @include tablet {
       @include flex-it(nowrap, flex-start, normal, row);
@@ -77,7 +87,7 @@ p {
     width: 100%;
     padding-left: 1.7rem;
     padding: 1rem;
-    margin-bottom: 1rem;
+   
 
     @include tablet {
       background-color: $background-page;
@@ -104,13 +114,16 @@ p {
     width: 100%;
     padding-left: 1.7rem;
     padding: 1rem;
-    margin-bottom: 1rem;
+    
+    // margin-bottom: 1rem;
 
     @include tablet {
       background-color: $background-page;
       font-size: 0.6rem;
+      
       // display:none;
     }
+    
     &--icon {
       display: none;
       @include tablet {
@@ -136,6 +149,7 @@ p {
         width: 58%;
       }
     }
+    
   }
 
   &__action {
@@ -150,9 +164,11 @@ p {
     padding-left: 1rem;
     height: 1.8rem;
     margin: 1rem 2rem 0 0;
+
     @include tablet {
       padding-left: 0rem;
-      margin: 1rem 0.6rem 0 0;
+      margin: 0rem 0.6rem 0 0;
+      
     }
     @include desktop {
       margin: 1rem 2rem 0 0;
@@ -176,6 +192,7 @@ p {
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
     }
+   
 
     &:last-of-type {
       border-bottom: none;
