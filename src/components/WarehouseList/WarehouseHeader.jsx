@@ -30,7 +30,7 @@ function WarehouseHeader() {
             </div>
           </div>
           <div className="warehouses__column">
-            <div className="warehouses__content warehouses__content--short">
+            <div className="warehouses__content warehouses__content--long">
               <h3 className="warehouses__mobile-header1">
                 Contact Name
                 <img
