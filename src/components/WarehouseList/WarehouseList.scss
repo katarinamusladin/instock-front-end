@@ -274,7 +274,7 @@ p {
 }
 
 .active {
-  @media (max-width: 47.9375rem) {
+  @include mobile {
     display: none;
   }
 }
