@@ -6,8 +6,7 @@
 p {
   font-family: "Titillium Web";
   padding-left: 1rem;
-  
-  
+  font-size: 0.8rem;
 }
 .warehouses {
   position: relative;
@@ -15,10 +14,22 @@ p {
   background-color: $primary-white;
   margin: 1rem;
 
-  &__name {
-    color:$primary-indigo;
-    font-weight:600;
+  &__name-wrapper {
+    display: flex;
+    align-items: center;
   }
+
+  &__name {
+    color: $primary-indigo;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  &__name--icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
   &__item {
     cursor: pointer;
     padding: 1rem 0;
@@ -67,9 +78,7 @@ p {
 
     @include tablet {
       background-color: $background-page;
-      display:none;
-      
-      
+      display: none;
     }
     &:hover {
       pointer-events: none;
@@ -100,8 +109,6 @@ p {
       background-color: $background-page;
       font-size: 0.6rem;
       // display:none;
-      
-      
     }
     &--icon {
       display: none;
@@ -133,7 +140,7 @@ p {
   &__action {
     @include flex-it(nowrap, space-between, normal, row);
     @include tablet {
-      display: inline-block;
+      // display: inline-block;
       width: 10%;
     }
   }
@@ -175,7 +182,6 @@ p {
       justify-content: space-between;
       padding: 0.9375rem 4%;
       margin: 0;
-
     }
     &-title {
       font-weight: 600;
@@ -256,11 +262,11 @@ p {
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
     }
-  
+
     &:last-of-type {
       border-bottom: none;
     }
-  
+
     &:hover {
       pointer-events: none;
     }
@@ -273,12 +279,11 @@ p {
   }
 }
 .header__appear {
-  display: none; 
+  display: none;
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .header__appear {
-    display: block; 
-    
+    display: block;
   }
 }
