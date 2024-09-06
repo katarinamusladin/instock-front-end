@@ -11,11 +11,13 @@
     @content;
   }
 }
+
 @mixin mobile {
-  @media screen and (max-width: $mobile-breakpoint){
+  @media screen and (max-width: $mobile-breakpoint) {
     @content;
   }
 }
+
 /*typography mixins*/
 @mixin p1 {
   font-size: .9375rem;
@@ -43,19 +45,32 @@
   }
 }
 
-/*page content mixin*/
+/*mixin for main page foreground design */
 @mixin page-content {
-  padding: $mobile-margin;
   background-color: $primary-white;
   border-radius: 0.25rem;
   position: relative;
   top: -2rem;
 
-  @include tablet {
-    padding: $tablet-margin;
-  }
-
   //TODO: include desktop if needed!
+}
+
+/*design-related mixins*/
+/*tag design mixins*/
+@mixin instock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $mobile-tag-h;
+  padding: 0 0.5rem;
+  background-color: $label-bckgd-green;
+  border-radius: $border-radius;
+  color: $label-green;
+  font-weight: 700;
+
+  @include tablet {
+    height: $tablet-desktop-tag-h;
+  }
 }
 
 
@@ -83,6 +98,8 @@
   border-right: .125rem solid $secondary-cloud;
 }
 
+
+/*flex-box mixins*/
 @mixin flex-it ($wrap: nowrap, $justify: flex-start, $align: stretch, $direction: row) {
   display: flex;
   flex-wrap: $wrap;

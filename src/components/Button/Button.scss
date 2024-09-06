@@ -10,14 +10,34 @@
     justify-content: center;
     height: $mobile-btn-h;
 
+    &--nav {
+        @include white-btn;
+    }
+
     &--circle {
         min-width: $mobile-btn-h;
         min-height: $mobile-btn-h;
         max-height: $mobile-btn-h;
         max-width: $mobile-btn-h;
+
+        @include tablet {
+            min-width: $mobile-btn-h;
+            max-width: none;
+        }
     }
 
-    &--nav {
-        @include white-btn;
+    &__text {
+        display: none;
+
+        @include tablet {
+            @include p2;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0.25rem;
+            color: $primary-white;
+            font-weight: 700;
+        }
     }
 }

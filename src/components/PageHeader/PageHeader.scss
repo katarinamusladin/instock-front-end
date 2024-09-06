@@ -4,7 +4,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .page-header {
-    @include divider-bottom;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -12,7 +11,7 @@
     &__left {
         width: 100%;
         display: flex;
-        padding-bottom: 1.5rem;
+        gap: $mobile-margin;
     }
 
 }

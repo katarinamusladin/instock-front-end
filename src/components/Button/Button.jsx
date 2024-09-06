@@ -23,6 +23,7 @@ export default function Button({ path, icon, text, altText, circle, nav }) {
 						src={icon}
 						alt={altText}
 					/>
+					<p className="btn__text">Edit</p>
 				</button>
 			</NavLink>
 		);
