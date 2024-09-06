@@ -7,10 +7,12 @@ import "./WarehouseList.scss";
 import { Link } from "react-router-dom";
 import WarehouseHeaderList from "../WarehouseHeaderList/WarehouseHeaderList";
 import SearchHeader from "../SearchHeader/SearchHeader";
+import WarehouseDeleteModal from "../WarehouseDeleteModal/WarehouseDeleteModal";
 
 function WarehouseList() {
   const [warehouses, setWarehouses] = useState([]);
-
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
   const columnsData = [
     ["Warehouse", "Address"],
     ["Contact Name", "Contact Information"],
@@ -27,6 +29,16 @@ function WarehouseList() {
       .catch((error) => console.error("Error fetching warehouses:", error));
   }, []);
 
+  const handleDelete = (warehouse) => {
+    setSelectedWarehouse(warehouse);
+    setShowDeleteModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowDeleteModal(false);
+    setSelectedWarehouse(null);
+  };
+
   return (
     <div className="warehouses">
       <SearchHeader title="Warehouses" />
@@ -42,15 +54,20 @@ function WarehouseList() {
             <div className="warehouses__column">
               <div className="warehouses__content warehouses__content--long">
                 <h3 className="warehouses__mobile-header">Warehouse</h3>
-                <Link to={`/warehouses/${warehouse.id}`} className="warehouses__link">
-                <div className="warehouses__name-wrapper">
-                  <p className="warehouses__name">{warehouse.warehouse_name}</p>
-                  <img
-                    src={arrowRight}
-                    alt="Arrow Right"
-                    className="warehouses__name--icon"
-                  />
-                </div>
+                <Link
+                  to={`/warehouses/${warehouse.id}`}
+                  className="warehouses__link"
+                >
+                  <div className="warehouses__name-wrapper">
+                    <p className="warehouses__name">
+                      {warehouse.warehouse_name}
+                    </p>
+                    <img
+                      src={arrowRight}
+                      alt="Arrow Right"
+                      className="warehouses__name--icon"
+                    />
+                  </div>
                 </Link>
               </div>
               <div className="warehouses__content warehouses__content--long">
@@ -74,15 +91,24 @@ function WarehouseList() {
           </div>
           <div className="warehouses__action">
             <h3 className="warehouses__mobile-header active">ACTIONS</h3>
-            <img
-              src={deleteIcon}
-              alt="delete icon"
-              className="warehouses__icon"
-            />
-            <img src={editIcon} alt="edit icon" className="warehouses__icon" />
+            <button
+              className="warehouses__icon-button"
+              onClick={() => handleDelete(warehouse)}
+            >
+              <img src={deleteIcon} alt="Delete icon" />
+            </button>
+            <button className="warehouses__icon-button">
+              <img src={editIcon} alt="Edit icon" />
+            </button>
           </div>
         </div>
       ))}
+      {showDeleteModal && (
+        <WarehouseDeleteModal
+          onClose={handleCloseModal}
+          warehouseName={selectedWarehouse?.warehouse_name}
+        />
+      )}
     </div>
   );
 }
