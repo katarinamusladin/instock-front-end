@@ -6,7 +6,7 @@ import deleteIcon from "../../assets/images/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import arrowRight from "../../assets/images/icons/chevron_right-24px.svg";
 import axios from "axios";
-import "../InventoryList/InventoryList.scss";
+// import "../InventoryPage/InventoryList.scss";
 
 
 function WarehouseInventoryList({ warehouseId }) {
