@@ -187,7 +187,7 @@ p {
   }
 
   &__item1 {
-    padding: 1rem 0;
+    // padding: 1rem 0;
     border-bottom: 0.0938rem solid $secondary-slate;
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
@@ -216,3 +216,12 @@ p {
     display: block;
   }
 }
+.warehouses__link {
+  text-decoration: none; 
+  color: inherit; 
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+

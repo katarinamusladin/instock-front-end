@@ -9,28 +9,28 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import InventoryList from "./components/InventoryList/InventoryList.jsx";
 import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
 function App() {
-	return (
-		<>
-			<BrowserRouter>
-				<Header />
-				<Routes>
-					<Route path="/" element={<HomePage />} />
-					<Route path="/home" element={<Navigate to="/" />} />
-					{/* <Route path="/warehouses" element={<Navigate to="/" />} /> */}
-					<Route path="/warehouses" element={<WarehouseList />} />
-					<Route
-						path="/warehouses/:warehouseId"
-						element={<WarehouseDetailsPage />}
-					/>
+  return (
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" />} />
+          {/* <Route path="/warehouses" element={<Navigate to="/" />} /> */}
+          <Route path="/warehouses" element={<WarehouseList />} />
+          <Route
+            path="/warehouses/:warehouseId"
+            element={<WarehouseDetailsPage />}
+          />
 
-					<Route
-						path="/inventories/:inventoryId"
-						element={<InventoryDetailsPage />}
-					/>
+          <Route
+            path="/inventories/:inventoryId"
+            element={<InventoryDetailsPage />}
+          />
 
-					<Route path="/inventory" element={<InventoryList />} />
+          <Route path="/inventory" element={<InventoryList />} />
 
-					{/* <Route
+          {/* <Route
 						path="/warehouses/:warehouseId/edit"
 						element={<WarehouseEditPage />}
 					/>
@@ -46,13 +46,13 @@ function App() {
 						path="/inventory/:inventoryId/add"
 						element={<InventorAddPage />}
 					/> */}
-					<Route path="/notfound" element={<NotFoundPage />} />
-					<Route path="*" element={<Navigate to="/notfound" />} />
-				</Routes>
-				<Footer />
-			</BrowserRouter>
-		</>
-	);
+          <Route path="/notfound" element={<NotFoundPage />} />
+          <Route path="*" element={<Navigate to="/notfound" />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
