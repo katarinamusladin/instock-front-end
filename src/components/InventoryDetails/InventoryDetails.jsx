@@ -4,8 +4,8 @@ import editIcon from "../../assets/images/icons/edit-white-24px.svg";
 import PageHeader from "../PageHeader/PageHeader";
 
 export default function InventoryDetails({ details }) {
-	const { id, warehouse_name, item_name, description, category, quantity } =
-		details[0];
+	const { warehouse_name, item_name, description, category, quantity } =
+		details;
 	return (
 		<section className="item-details">
 			<div className="item-details__header">
