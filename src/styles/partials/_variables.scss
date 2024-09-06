@@ -10,12 +10,20 @@ $background-header: #232940;
 $background-page: #F7F8F9;
 $label-green: #158463;
 $label-red: #C94515;
+$label-bckgd-green: #15846310;
+$label-bckgd-red: #C9451510;
 
 /*dimensions*/
 $mobile-btn-h: 2.25rem;
 $tablet-desktop-btn-h: 2.375rem;
+$mobile-tag-h: 1.5rem;
+$tablet-desktop-tag-h: 1.625rem;
 
-/*standard padding sizes*/
+/*standards: */
+/*padding sizes*/
 $mobile-margin: 1rem;
 $tablet-margin: 2rem;
 // $desktop-margin: 
+
+/*design-related*/
+$border-radius: 1.25rem;

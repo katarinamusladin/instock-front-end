@@ -1,5 +1,5 @@
 import "./HomePage.scss";
-import Details from "../../components/Details/Details";
+import Details from "../../components/WarehouseDetails/WarehouseDetails";
 import WareHouseList from "../../components/WarehouseList/WarehouseList";
 export default function HomePage() {
 	document.title = "Home";
@@ -8,7 +8,7 @@ export default function HomePage() {
 			{/* <article className="home__container">
 				<section className="home__list">
 					{/* INSERT LIST COMPONENT HERE */}
-				{/* </section>
+			{/* </section>
 			</article>  */}
 			<WareHouseList />
 		</>

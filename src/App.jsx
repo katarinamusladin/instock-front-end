@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage.jsx";
+import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
 						path="/warehouses/:warehouseId"
 						element={<WarehouseDetailsPage />}
 					/>
+					<Route
+						path="/inventories/:inventoryId"
+						element={<InventoryDetailsPage />}
+					/>
 					{/* <Route
 						path="/warehouses/:warehouseId/edit"
 						element={<WarehouseEditPage />}
@@ -28,10 +33,6 @@ function App() {
 						element={<WarehouseAddPage />}
 					/>
 					<Route path="/inventory" element={<InventoryPage />} />
-					<Route
-						path="/inventory/:inventoryId"
-						element={<InventoryItemPage />}
-					/>
 					<Route
 						path="/inventory/:inventoryId/edit"
 						element={<InventoryEditPage />}

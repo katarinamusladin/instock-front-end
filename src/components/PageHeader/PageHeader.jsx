@@ -1,6 +1,5 @@
 import "./PageHeader.scss";
 import Button from "../Button/Button.jsx";
-import { NavLink } from "react-router-dom";
 
 export default function PageHeader({
 	path1,
