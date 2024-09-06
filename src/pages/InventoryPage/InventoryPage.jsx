@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import SearchHeader from "../SearchHeader/SearchHeader";
-import WarehouseHeaderList from "../WarehouseHeaderList/WarehouseHeaderList";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
+import WarehouseHeaderList from "../../components/WarehouseHeaderList/WarehouseHeaderList";
 import Arrows from "../../assets/images/icons/sort-24px.svg";
 import deleteIcon from "../../assets/images/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import arrowRight from "../../assets/images/icons/chevron_right-24px.svg";
-import "./InventoryList.scss";
-function InventoryList() {
+import "./InventoryPage.scss";
+function InventoryPage() {
   const [inventoryItems, setInventoryItems] = useState([]);
   const [warehouses, setWarehouses] = useState({});
   const [loading, setLoading] = useState(true);
@@ -117,4 +117,4 @@ function InventoryList() {
   );
 }
 
-export default InventoryList;
+export default InventoryPage;
