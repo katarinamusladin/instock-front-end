@@ -1,0 +1,103 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+.modal {
+  &__overlay {
+    background-color: rgba($primary-black, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+  }
+
+  &__container {
+    background-color: $primary-white;
+    border: none;
+    padding: 1.25rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      border-radius: 0.25rem;
+      bottom: 8.75rem;
+      height: 30%;
+      max-width: 40.625rem;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0.625rem;
+    right: 0.625rem;
+    width: 1.5rem;
+    cursor: pointer;
+  }
+
+  &__heading {
+    margin: 0;
+    margin-bottom: 1.25rem;
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 2.5rem;
+    padding-right: 5rem;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    font-family: "Titillium Web";
+    border-radius: 1.25rem;
+    border: none;
+    padding: 0.625rem 1rem;
+    width: 50%;
+    cursor: pointer;
+    font-size: 0.75rem;
+    margin-right: 1rem;
+
+    @include tablet {
+      width: 13%;
+    }
+
+    &--cancel {
+      background-color: $primary-white;
+      border: 0.0625rem solid $secondary-cloud;
+      color: $secondary-slate;
+
+      &:hover {
+        color: $primary-indigo;
+        border-color: $primary-indigo;
+      }
+    }
+
+    &--delete {
+      background-color: $label-red;
+      color: $primary-white;
+
+      &:hover {
+        background-color: $primary-black;
+      }
+    }
+  }
+}

@@ -26,7 +26,6 @@ p {
   &__name-wrapper {
     display: flex;
     align-items: center;
-    
   }
 
   &__name {
@@ -41,12 +40,9 @@ p {
   }
 
   &__item {
-    cursor: pointer;
-
     padding: 1rem 0;
     border-bottom: 0.0938rem solid $secondary-slate;
     @include tablet {
-      
       @include flex-it(nowrap, space-between, normal, row);
       &:hover {
         background-color: rgba($primary-indigo, 0.1);
@@ -56,8 +52,6 @@ p {
     &:last-of-type {
       border-bottom: none;
     }
-
-    
   }
 
   &__text-box {
@@ -70,7 +64,6 @@ p {
   &__column {
     @include flex-it(wrap, flex-start, normal, column);
     width: 45%;
-    
 
     @include tablet {
       @include flex-it(nowrap, flex-start, normal, row);
@@ -87,7 +80,6 @@ p {
     width: 100%;
     padding-left: 1.7rem;
     padding: 1rem;
-   
 
     @include tablet {
       background-color: $background-page;
@@ -114,16 +106,12 @@ p {
     width: 100%;
     padding-left: 1.7rem;
     padding: 1rem;
-    
-    // margin-bottom: 1rem;
 
     @include tablet {
       background-color: $background-page;
       font-size: 0.6rem;
-      
-      // display:none;
     }
-    
+
     &--icon {
       display: none;
       @include tablet {
@@ -149,13 +137,11 @@ p {
         width: 58%;
       }
     }
-    
   }
 
   &__action {
     @include flex-it(nowrap, space-between, normal, row);
     @include tablet {
-      // display: inline-block;
       width: 10%;
     }
   }
@@ -168,13 +154,18 @@ p {
     @include tablet {
       padding-left: 0rem;
       margin: 0rem 0.6rem 0 0;
-      
     }
     @include desktop {
       margin: 1rem 2rem 0 0;
     }
 
     &:hover {
+      cursor: pointer;
+    }
+
+    &-button {
+      background: none;
+      border: none;
       cursor: pointer;
     }
   }
@@ -187,12 +178,10 @@ p {
   }
 
   &__item1 {
-    // padding: 1rem 0;
     border-bottom: 0.0938rem solid $secondary-slate;
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
     }
-   
 
     &:last-of-type {
       border-bottom: none;
@@ -217,11 +206,6 @@ p {
   }
 }
 .warehouses__link {
-  text-decoration: none; 
-  color: inherit; 
-  &:hover {
-    text-decoration: none;
-  }
+  text-decoration: none;
+  color: inherit;
 }
-
-
