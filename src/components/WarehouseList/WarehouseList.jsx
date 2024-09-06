@@ -13,7 +13,7 @@ function WarehouseList() {
 
   const columnsData = [
     ["Warehouse", "Address"],
-    ["Contact Name", "Contact Information"]
+    ["Contact Name", "Contact Information"],
   ];
 
   useEffect(() => {
@@ -29,21 +29,20 @@ function WarehouseList() {
 
   return (
     <div className="warehouses">
-      <SearchHeader 
-      title = "Warehouses"/>
+      <SearchHeader title="Warehouses" />
       <WarehouseHeaderList
-      columns={columnsData} 
-      actionText="Actions" 
-      iconSrc={Arrows} 
+        columns={columnsData}
+        actionText="Actions"
+        iconSrc={Arrows}
       />
 
-     
       {warehouses.map((warehouse) => (
         <div key={warehouse.id} className="warehouses__item">
           <div className="warehouses__text-box">
             <div className="warehouses__column">
               <div className="warehouses__content warehouses__content--long">
                 <h3 className="warehouses__mobile-header">Warehouse</h3>
+                <Link to={`/warehouses/${warehouse.id}`} className="warehouses__link">
                 <div className="warehouses__name-wrapper">
                   <p className="warehouses__name">{warehouse.warehouse_name}</p>
                   <img
@@ -52,6 +51,7 @@ function WarehouseList() {
                     className="warehouses__name--icon"
                   />
                 </div>
+                </Link>
               </div>
               <div className="warehouses__content warehouses__content--long">
                 <h3 className="warehouses__mobile-header">Address</h3>
