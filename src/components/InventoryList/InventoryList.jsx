@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import axios from "axios"; 
+import axios from "axios";
 import SearchHeader from "../SearchHeader/SearchHeader";
 import WarehouseHeaderList from "../WarehouseHeaderList/WarehouseHeaderList";
 import Arrows from "../../assets/images/icons/sort-24px.svg";
 import deleteIcon from "../../assets/images/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import arrowRight from "../../assets/images/icons/chevron_right-24px.svg";
-import './InventoryList.scss';
+import "./InventoryList.scss";
 function InventoryList() {
   const [inventoryItems, setInventoryItems] = useState([]);
   const [warehouses, setWarehouses] = useState({});
@@ -20,16 +20,19 @@ function InventoryList() {
   useEffect(() => {
     const fetchInventoryItems = async () => {
       try {
-        const responseInv = await axios.get("http://localhost:8080/api/inventories");
-        const responseWar = await axios.get("http://localhost:8080/api/warehouses");
+        const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
+          import.meta.env.VITE_PORT
+        }`;
+        const responseInv = await axios.get(`${baseUrl}/api/inventories`);
+        const responseWar = await axios.get(`${baseUrl}/api/warehouses`);
 
         const warehouseMap = responseWar.data.reduce((acc, warehouse) => {
           acc[warehouse.id] = warehouse.warehouse_name;
           return acc;
         }, {});
 
-        setInventoryItems(responseInv.data); 
-        setWarehouses(warehouseMap); 
+        setInventoryItems(responseInv.data);
+        setWarehouses(warehouseMap);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching inventory data:", error);
@@ -41,7 +44,7 @@ function InventoryList() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
 
   return (
@@ -54,9 +57,11 @@ function InventoryList() {
       />
 
       {inventoryItems.map((item) => {
-        
-        const statusClass = item.status === "In Stock" ? "status-in-stock" : "status-out-of-stock";
-        
+        const statusClass =
+          item.status === "In Stock"
+            ? "status-in-stock"
+            : "status-out-of-stock";
+
         return (
           <div key={item.id} className="warehouses__item">
             <div className="warehouses__text-box">
@@ -80,7 +85,7 @@ function InventoryList() {
               <div className="warehouses__column">
                 <div className="warehouses__content warehouses__content--short">
                   <h3 className="warehouses__mobile-header">Status</h3>
-                  <p className={statusClass}>{item.status}</p> 
+                  <p className={statusClass}>{item.status}</p>
                 </div>
                 <div className="warehouses__content warehouses__content--short">
                   <h3 className="warehouses__mobile-header">QTY</h3>
@@ -88,7 +93,7 @@ function InventoryList() {
                 </div>
                 <div className="warehouses__content warehouses__content--short">
                   <h3 className="warehouses__mobile-header">Warehouse</h3>
-                  <p>{warehouses[item.warehouse_id]}</p> 
+                  <p>{warehouses[item.warehouse_id]}</p>
                 </div>
               </div>
             </div>
