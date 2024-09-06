@@ -18,9 +18,9 @@
 .status-in-stock,
 .status-out-of-stock {
   width: 40%; 
-  padding: 5px 10px; 
+  padding: .3125rem .625rem; 
   text-align: center;
-  border-radius: 20px; 
+  border-radius: 1.25rem; 
   @include tablet {
     width: 65%;
   }
