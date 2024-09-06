@@ -11,6 +11,11 @@ import SearchHeader from "../SearchHeader/SearchHeader";
 function WarehouseList() {
   const [warehouses, setWarehouses] = useState([]);
 
+  const columnsData = [
+    ["Warehouse", "Address"],
+    ["Contact Name", "Contact Information"]
+  ];
+
   useEffect(() => {
     const baseUrl = import.meta.env.VITE_BASE_URL;
     const port = import.meta.env.VITE_PORT;
@@ -26,14 +31,18 @@ function WarehouseList() {
     <div className="warehouses">
       <SearchHeader 
       title = "Warehouses"/>
-      <WarehouseHeaderList />
+      <WarehouseHeaderList
+      columns={columnsData} 
+      actionText="Actions" 
+      iconSrc={Arrows} 
+      />
 
-      {/* Warehouse List Section  */}
+     
       {warehouses.map((warehouse) => (
         <div key={warehouse.id} className="warehouses__item">
           <div className="warehouses__text-box">
             <div className="warehouses__column">
-              <div className="warehouses__content warehouses__content--short">
+              <div className="warehouses__content warehouses__content--long">
                 <h3 className="warehouses__mobile-header">Warehouse</h3>
                 <div className="warehouses__name-wrapper">
                   <p className="warehouses__name">{warehouse.warehouse_name}</p>
@@ -50,7 +59,7 @@ function WarehouseList() {
               </div>
             </div>
             <div className="warehouses__column">
-              <div className="warehouses__content warehouses__content--short">
+              <div className="warehouses__content warehouses__content--long">
                 <h3 className="warehouses__mobile-header">Contact Name</h3>
                 <p>{warehouse.contact_name}</p>
               </div>

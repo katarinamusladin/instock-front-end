@@ -1,0 +1,27 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.status-in-stock {
+  color: $label-green;
+  background-color: rgba($label-green, 0.2); 
+  text-transform: uppercase;
+  
+}
+
+.status-out-of-stock {
+  background-color: rgba($label-red, 0.2); ;
+  color:$label-red;
+  text-transform: uppercase;
+}
+.status-in-stock,
+.status-out-of-stock {
+  width: 40%; 
+  padding: .3125rem .625rem; 
+  text-align: center;
+  border-radius: 1.25rem; 
+  @include tablet {
+    width: 65%;
+  }
+}
