@@ -10,11 +10,6 @@
 
     &__header {
         @include divider-bottom;
-        padding: 1.5rem $mobile-margin $mobile-margin $mobile-margin;
-
-        @include tablet {
-            padding: $tablet-margin;
-        }
     }
 
     &__content {

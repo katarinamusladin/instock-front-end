@@ -73,6 +73,21 @@
   }
 }
 
+@mixin outofstock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $mobile-tag-h;
+  padding: 0 0.5rem;
+  background-color: $label-bckgd-red;
+  border-radius: $border-radius;
+  color: $label-red;
+  font-weight: 700;
+
+  @include tablet {
+    height: $tablet-desktop-tag-h;
+  }
+}
 
 /*button design mixins*/
 @mixin blue-btn-white-text {
@@ -83,15 +98,37 @@
   padding: 0 1rem;
 }
 
+@mixin white-btn-gray-border {
+  background-color: $background-page;
+  color: $secondary-slate;
+  border-radius: 1.25rem;
+  border: 0.0625rem solid $secondary-cloud;
+  padding: 0 1rem;
+}
+
+//this is for the back btn/ other navigation btns
 @mixin white-btn {
   background-color: $primary-white;
   border: 0.0625rem solid $primary-white;
   padding: 0;
 }
 
+//TODO: form validation designs?
+//TODO: make hover state designs 
+//TODO: and maybe the "secondary/long form" (Katarina I think has the designs for these) 
+
+
 /*divider mixins*/
 @mixin divider-bottom {
   border-bottom: .0625rem solid $secondary-cloud;
+}
+
+@mixin divider-bottom-thick {
+  border-right: .125rem solid $secondary-cloud;
+}
+
+@mixin divider-right {
+  border-right: .0625rem solid $secondary-cloud;
 }
 
 @mixin divider-right-thick {

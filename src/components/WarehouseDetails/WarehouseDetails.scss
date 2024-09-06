@@ -10,7 +10,7 @@
 
     &__content {
         @extend .details;
-        padding: $mobile-margin 0;
+        padding: $mobile-margin;
         gap: $mobile-margin*2;
 
         @include tablet {
