@@ -7,10 +7,15 @@ import deleteIcon from "../../assets/images/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import arrowRight from "../../assets/images/icons/chevron_right-24px.svg";
 import "./InventoryPage.scss";
+import InventoryDeleteModal from "../../components/InventoryDeleteModal/InventoryDeleteModal";
+import "./InventoryPage.scss";
+
 function InventoryPage() {
   const [inventoryItems, setInventoryItems] = useState([]);
   const [warehouses, setWarehouses] = useState({});
   const [loading, setLoading] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const columnsData = [
     ["Inventory Item", "Category"],
@@ -42,6 +47,33 @@ function InventoryPage() {
 
     fetchInventoryItems();
   }, []);
+
+  const handleDeleteClick = (item) => {
+    setSelectedItem(item);
+    setModalVisible(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    try {
+      const baseUrl = `${import.meta.env.VITE_BASE_URL}:${import.meta.env.VITE_PORT}`;
+      await axios.delete(`${baseUrl}/api/inventories/${selectedItem.id}`);
+
+      
+      setInventoryItems((prevItems) =>
+        prevItems.filter((item) => item.id !== selectedItem.id)
+      );
+
+      setModalVisible(false);
+      setSelectedItem(null);
+    } catch (error) {
+      console.error("Error deleting inventory item:", error);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+    setSelectedItem(null);
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -99,20 +131,27 @@ function InventoryPage() {
             </div>
             <div className="warehouses__action">
               <h3 className="warehouses__mobile-header active">ACTIONS</h3>
-              <img
-                src={deleteIcon}
-                alt="delete icon"
-                className="warehouses__icon"
-              />
-              <img
-                src={editIcon}
-                alt="edit icon"
-                className="warehouses__icon"
-              />
+              <button
+                className="warehouses__icon-button"
+                onClick={() => handleDeleteClick(item)}
+              >
+                <img src={deleteIcon} alt="Delete icon" />
+              </button>
+              <button className="warehouses__icon-button">
+                <img src={editIcon} alt="Edit icon" />
+              </button>
             </div>
           </div>
         );
       })}
+
+      {modalVisible && (
+        <InventoryDeleteModal
+          onClose={handleCloseModal}
+          itemName={selectedItem.item_name}
+          onDelete={handleDeleteConfirm}
+        />
+      )}
     </div>
   );
 }

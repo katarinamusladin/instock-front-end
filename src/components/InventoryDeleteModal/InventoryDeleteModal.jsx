@@ -1,14 +1,21 @@
-import "./WarehouseDeleteModal.scss";
+import './InventoryDeleteModal.scss';
+import '../WarehouseDeleteModal/WarehouseDeleteModal.scss';
 import Exit from "../../assets/images/icons/close-24px.svg";
-function WarehouseDeleteModal({ onClose, warehouseName, onDeleteConfirm }) {
+
+function InventoryDeleteModal({ onClose, itemName, onDelete }) {
   const handleClose = () => {
     onClose();
   };
 
   const handleOverlayClick = (e) => {
-    if (e.target.classList.contains("modal-overlay")) {
+    if (e.target.classList.contains("modal__overlay")) {
       onClose();
     }
+  };
+
+  const handleDelete = () => {
+    onDelete();
+    onClose(); 
   };
 
   return (
@@ -20,10 +27,9 @@ function WarehouseDeleteModal({ onClose, warehouseName, onDeleteConfirm }) {
           className="modal__icon"
           onClick={handleClose}
         />
-        <h1 className="modal__heading">Delete {warehouseName} warehouse?</h1>
+        <h1 className="modal__heading">Delete {itemName} item?</h1>
         <p className="modal__text">
-          Please confirm that you’d like to delete this warehouse from the list
-          of warehouses. You won’t be able to undo this action.
+          Please confirm that you’d like to delete this inventory item. You won’t be able to undo this action.
         </p>
         <div className="modal__button-container">
           <button
@@ -32,7 +38,10 @@ function WarehouseDeleteModal({ onClose, warehouseName, onDeleteConfirm }) {
           >
             Cancel
           </button>
-          <button className="modal__button modal__button--delete"  onClick={onDeleteConfirm}>
+          <button
+            className="modal__button modal__button--delete"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </div>
@@ -41,4 +50,4 @@ function WarehouseDeleteModal({ onClose, warehouseName, onDeleteConfirm }) {
   );
 }
 
-export default WarehouseDeleteModal;
+export default InventoryDeleteModal;
