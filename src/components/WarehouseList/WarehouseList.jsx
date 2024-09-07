@@ -7,7 +7,7 @@ import "./WarehouseList.scss";
 import { Link } from "react-router-dom";
 import WarehouseHeaderList from "../WarehouseHeaderList/WarehouseHeaderList";
 import SearchHeader from "../SearchHeader/SearchHeader";
-import WarehouseDeleteModal from "../WarehouseDeleteModal/WarehouseDeleteModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function WarehouseList() {
   const [warehouses, setWarehouses] = useState([]);
@@ -57,7 +57,7 @@ function WarehouseList() {
               (warehouse) => warehouse.id !== selectedWarehouse.id
             )
           );
-          handleCloseModal(); 
+          handleCloseModal();
         } else {
           console.error("Error deleting warehouse:", response);
         }
@@ -130,9 +130,10 @@ function WarehouseList() {
         </div>
       ))}
       {showDeleteModal && (
-        <WarehouseDeleteModal
+        <DeleteModal
           onClose={handleCloseModal}
-          warehouseName={selectedWarehouse?.warehouse_name}
+          title={`Delete ${selectedWarehouse?.warehouse_name} warehouse?`}
+          message={`Are you sure you want to delete ${selectedWarehouse.warehouse_name}? This action cannot be undone.`}
           onDeleteConfirm={confirmDeleteWarehouse}
         />
       )}
