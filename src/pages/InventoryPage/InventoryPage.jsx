@@ -82,7 +82,7 @@ function InventoryPage() {
 
   return (
     <div className="warehouses">
-      <SearchHeader title="Inventory" />
+      <SearchHeader title="Inventory"  />
       <WarehouseHeaderList
         columns={columnsData}
         actionText="Actions"
