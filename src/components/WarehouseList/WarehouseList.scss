@@ -141,7 +141,6 @@ p {
 
   &__action {
     @include flex-it(nowrap, space-between, normal, row);
-    padding-right: 1rem;
     @include tablet {
       width: 10%;
       justify-content: space-around;
