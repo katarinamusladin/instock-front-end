@@ -1,6 +1,6 @@
 import "./WarehouseDeleteModal.scss";
 import Exit from "../../assets/images/icons/close-24px.svg";
-function WarehouseDeleteModal({ onClose, warehouseName }) {
+function WarehouseDeleteModal({ onClose, warehouseName, onDeleteConfirm }) {
   const handleClose = () => {
     onClose();
   };
@@ -32,7 +32,7 @@ function WarehouseDeleteModal({ onClose, warehouseName }) {
           >
             Cancel
           </button>
-          <button className="modal__button modal__button--delete">
+          <button className="modal__button modal__button--delete"  onClick={onDeleteConfirm}>
             Delete
           </button>
         </div>

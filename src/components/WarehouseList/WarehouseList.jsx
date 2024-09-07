@@ -39,6 +39,32 @@ function WarehouseList() {
     setSelectedWarehouse(null);
   };
 
+  const confirmDeleteWarehouse = () => {
+    if (!selectedWarehouse) return;
+
+    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const port = import.meta.env.VITE_PORT;
+    const endpoint = import.meta.env.VITE_BASE_ENDPOINT;
+    const deleteUrl = `${baseUrl}:${port}/${endpoint}/${selectedWarehouse.id}`;
+
+    fetch(deleteUrl, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          setWarehouses((prevWarehouses) =>
+            prevWarehouses.filter(
+              (warehouse) => warehouse.id !== selectedWarehouse.id
+            )
+          );
+          handleCloseModal(); 
+        } else {
+          console.error("Error deleting warehouse:", response);
+        }
+      })
+      .catch((error) => console.error("Error deleting warehouse:", error));
+  };
+
   return (
     <div className="warehouses">
       <SearchHeader title="Warehouses" />
@@ -107,6 +133,7 @@ function WarehouseList() {
         <WarehouseDeleteModal
           onClose={handleCloseModal}
           warehouseName={selectedWarehouse?.warehouse_name}
+          onDeleteConfirm={confirmDeleteWarehouse}
         />
       )}
     </div>
