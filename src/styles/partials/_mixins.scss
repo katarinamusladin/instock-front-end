@@ -56,6 +56,11 @@
 }
 
 /*design-related mixins*/
+/*page outline/shadow*/
+@mixin page-shadow {
+  box-shadow: .125rem .125rem .125rem .125rem rgb(0 0 0 / 3%);
+}
+
 /*tag design mixins*/
 @mixin instock {
   display: flex;
@@ -117,8 +122,25 @@
 //TODO: make hover state designs 
 //TODO: and maybe the "secondary/long form" (Katarina I think has the designs for these) 
 
+/*Form field mixins*/
+@mixin form-active {
+  border: 0.0625rem solid $primary-indigo;
+}
+
+@mixin form-error {
+  border: 0.0625rem solid $label-red;
+}
+
 
 /*divider mixins*/
+@mixin divider-top {
+  border-top: .0625rem solid $secondary-cloud;
+}
+
+@mixin divider-top--thick {
+  border-top: .125rem solid $secondary-cloud;
+}
+
 @mixin divider-bottom {
   border-bottom: .0625rem solid $secondary-cloud;
 }
@@ -135,7 +157,7 @@
   border-right: .125rem solid $secondary-cloud;
 }
 
-@mixin divider-top-thick{
+@mixin divider-top-thick {
   border-top: .125rem solid $secondary-cloud;
 }
 

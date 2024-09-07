@@ -4,3 +4,15 @@
 //     flex-direction: column;
 //     justify-content: space-between;
 // }
+
+
+a {
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:link,
+    &:visited {
+        text-decoration: none;
+    }
+}

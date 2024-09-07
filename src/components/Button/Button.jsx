@@ -1,7 +1,15 @@
 import "./Button.scss";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-export default function Button({ path, icon, text, altText, circle, nav }) {
+export default function Button({
+	path,
+	icon,
+	text,
+	altText,
+	circle,
+	nav,
+	secondary,
+}) {
 	if (nav) {
 		return (
 			<NavLink to={`${path}`}>
@@ -28,15 +36,10 @@ export default function Button({ path, icon, text, altText, circle, nav }) {
 			</NavLink>
 		);
 	} else if (text) {
-		return (
-			<button className={`btn ${text ? "" : "btn--text"}`}>
-				<img
-					className={`${icon ? "btn__image" : ""}`}
-					src={icon}
-					alt={altText}
-				/>
-				{text.toUpperCase()}
-			</button>
-		);
+		if (secondary) {
+			return <button className={"btn btn--text-secondary"}>{text}</button>;
+		} else {
+			return <button className={"btn btn--text"}>{text}</button>;
+		}
 	}
 }

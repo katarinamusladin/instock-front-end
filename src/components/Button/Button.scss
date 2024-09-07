@@ -26,6 +26,20 @@
         }
     }
 
+    &--text {
+        width: 100%;
+        @include blue-btn-white-text;
+        color: $primary-white;
+        font-weight: 700;
+    }
+
+    &--text-secondary {
+        @include white-btn-gray-border;
+        width: 100%;
+        color: $secondary-slate;
+        font-weight: 700;
+    }
+
     &__text {
         display: none;
 
