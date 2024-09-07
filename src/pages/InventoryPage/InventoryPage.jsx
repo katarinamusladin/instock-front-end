@@ -7,7 +7,7 @@ import deleteIcon from "../../assets/images/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/images/icons/edit-24px.svg";
 import arrowRight from "../../assets/images/icons/chevron_right-24px.svg";
 import "./InventoryPage.scss";
-import InventoryDeleteModal from "../../components/InventoryDeleteModal/InventoryDeleteModal";
+import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import "./InventoryPage.scss";
 
 function InventoryPage() {
@@ -55,10 +55,11 @@ function InventoryPage() {
 
   const handleDeleteConfirm = async () => {
     try {
-      const baseUrl = `${import.meta.env.VITE_BASE_URL}:${import.meta.env.VITE_PORT}`;
+      const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
+        import.meta.env.VITE_PORT
+      }`;
       await axios.delete(`${baseUrl}/api/inventories/${selectedItem.id}`);
 
-      
       setInventoryItems((prevItems) =>
         prevItems.filter((item) => item.id !== selectedItem.id)
       );
@@ -146,10 +147,11 @@ function InventoryPage() {
       })}
 
       {modalVisible && (
-        <InventoryDeleteModal
+        <DeleteModal
           onClose={handleCloseModal}
-          itemName={selectedItem.item_name}
-          onDelete={handleDeleteConfirm}
+          title={`Delete ${selectedItem.item_name} item?`}
+          message={`Are you sure you want to delete ${selectedItem.item_name}? This action cannot be undone.`}
+          onConfirm={handleDeleteConfirm}
         />
       )}
     </div>
