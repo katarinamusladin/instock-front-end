@@ -1,0 +1,79 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.availability {
+
+    @include tablet {
+        width: 50%;
+    }
+    // width: 100%;
+    &__quantity{
+        padding: 8px;
+        border-radius: $border-radius;
+        border-color: $secondary-cloud;
+        margin-bottom: 1rem;
+        padding-left: 16px;
+    }
+    &__warehouse{
+        padding: 8px;
+        border-radius: $border-radius;
+        border-color: $secondary-slate;
+        margin-bottom: 1rem;
+        color: $secondary-slate;
+        padding-left: 16px;
+
+    }
+
+    &__status{
+        display: flex;
+        width: 100%;
+        font-family: 'Titillium Web';
+        color: $secondary-slate;
+        padding-bottom: 1rem;
+
+        &:checked{
+            color: $primary-black;
+        }
+
+        &::before{
+            color:$secondary-slate;
+        }
+
+
+
+        &--in{
+            display:flex;
+            justify-content: flex-start;
+            padding-left: .5rem;
+            padding-right: 8rem;
+
+
+            &:checked{
+                color: $primary-black;
+            }
+
+            &::before{
+                color:$secondary-slate;
+            }
+
+            @include tablet{
+                padding-right: 5rem;
+            }
+        }
+        &--out{
+            display: flex;
+            justify-content: flex-end;
+            padding-left: .5rem;
+
+            &:checked{
+                color: $primary-black;
+            }
+
+            &::before{
+                color:$secondary-slate;
+            }
+        }
+    }
+}

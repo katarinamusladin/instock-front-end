@@ -124,7 +124,7 @@
 }
 
 @mixin divider-bottom-thick {
-  border-right: .125rem solid $secondary-cloud;
+  border-bottom: .125rem solid $secondary-cloud;
 }
 
 @mixin divider-right {
@@ -133,6 +133,10 @@
 
 @mixin divider-right-thick {
   border-right: .125rem solid $secondary-cloud;
+}
+
+@mixin divider-top-thick{
+  border-top: .125rem solid $secondary-cloud;
 }
 
 
