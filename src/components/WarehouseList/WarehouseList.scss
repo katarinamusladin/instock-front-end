@@ -140,9 +140,11 @@ p {
   }
 
   &__action {
-    @include flex-it(nowrap, space-around, normal, row);
+    @include flex-it(nowrap, space-between, normal, row);
+    padding:0 1rem;
     @include tablet {
       width: 10%;
+      justify-content: space-around;
     }
   }
 
