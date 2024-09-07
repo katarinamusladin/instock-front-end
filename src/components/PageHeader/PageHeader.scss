@@ -10,6 +10,17 @@
     justify-content: space-between;
     padding: $mobile-margin;
 
+    @include tablet {
+        padding-left: $tablet-margin;
+        padding-right: $tablet-margin;
+    }
+
+    //TODO: come back to desktop margins/padding!
+    // @include desktop {
+    //     padding-left: $desktop-margin;
+    //     padding-right: $desktop-margin;
+    // }
+
     &__left {
         width: 100%;
         display: flex;

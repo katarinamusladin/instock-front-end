@@ -56,36 +56,42 @@ export default function EditWarehousePage() {
 				/>
 				<div className="edit-warehouse__form-container">
 					<form className="edit-warehouse__form">
-						<div>
-							<EditWarehouseDetails
-								header={topHeader}
-								labels={topLabels}
-								details={topEntries}
-								warehouseId={warehouseId}
-							/>
-						</div>
-						<div className="edit-warehouse__form-bottom">
-							<EditWarehouseDetails
-								header={botHeader}
-								labels={botLabels}
-								details={botEntries}
-								warehouseId={warehouseId}
-							/>
+						<div className="edit-warehouse__form-top">
+							<div className="edit-warehouse__half edit-warehouse__half--first">
+								<EditWarehouseDetails
+									header={topHeader}
+									labels={topLabels}
+									details={topEntries}
+									warehouseId={warehouseId}
+								/>
+							</div>
+							<div className="edit-warehouse__half">
+								<EditWarehouseDetails
+									header={botHeader}
+									labels={botLabels}
+									details={botEntries}
+									warehouseId={warehouseId}
+								/>
+							</div>
 						</div>
 						<div className="edit-warehouse__form-btns">
 							{/* TODO: CHANGE FROM BUTTON TO LINK AND STYLE IT LIKE BUTTON! */}
-							<Button
-								path={`/warehouses/edit/${warehouseId}`}
-								text="Cancel"
-								secondary="yes"
-								// onClick={cancelHandle}
-							/>
-							<Button
-								type="submit"
-								path={`/warehouses/${warehouseId}`}
-								text="Save"
-								// onSubmit={editWarehouseHandle}
-							/>
+							<div className="edit-warehouse__form-btn">
+								<Button
+									path={`/warehouses/edit/${warehouseId}`}
+									text="Cancel"
+									secondary="yes"
+									// onClick={cancelHandle}
+								/>
+							</div>
+							<div className="edit-warehouse__form-btn">
+								<Button
+									type="submit"
+									path={`/warehouses/${warehouseId}`}
+									text="Save"
+									// onSubmit={editWarehouseHandle}
+								/>
+							</div>
 						</div>
 					</form>
 				</div>

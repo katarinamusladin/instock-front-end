@@ -56,6 +56,11 @@
 }
 
 /*design-related mixins*/
+/*page outline/shadow*/
+@mixin page-shadow {
+  box-shadow: .125rem .125rem .125rem .125rem rgb(0 0 0 / 3%);
+}
+
 /*tag design mixins*/
 @mixin instock {
   display: flex;
@@ -116,6 +121,15 @@
 //TODO: form validation designs?
 //TODO: make hover state designs 
 //TODO: and maybe the "secondary/long form" (Katarina I think has the designs for these) 
+
+/*Form field mixins*/
+@mixin form-active {
+  border: 0.0625rem solid $primary-indigo;
+}
+
+@mixin form-error {
+  border: 0.0625rem solid $label-red;
+}
 
 
 /*divider mixins*/

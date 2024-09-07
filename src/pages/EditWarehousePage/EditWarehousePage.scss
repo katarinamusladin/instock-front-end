@@ -9,36 +9,74 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: $background-page;
-    padding: $mobile-margin;
+    padding: 0 $mobile-margin;
     gap: $mobile-margin;
 
     @include tablet {
         padding: 0 $tablet-margin;
+        gap: $alt-mobile-margin;
     }
 
     //TODO: INCLUDE DESKTOP MARGINS
 
-
     &__page {
         @include page-content;
+        @include page-shadow;
         width: 100%;
         display: flex;
         flex-direction: column;
     }
 
-    &__form-container {
-        @include divider-top--thick;
+    &__form-top {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            @include divider-top-thick;
+            padding: $alt-mobile-margin 0;
+            flex-direction: row;
+        }
     }
 
-    &__form-bottom {
+    &__half {
         @include divider-top-thick;
+        width: 100%;
+        padding: $alt-mobile-margin 0;
+
+        @include tablet {
+            border-top: 0;
+            padding: 0;
+        }
+
+        &--first {
+            @include tablet {
+                @include divider-right-thick;
+            }
+        }
     }
 
     &__form-btns {
         width: 100%;
         display: flex;
-        padding: $alt-mobile-margin;
+        padding: $mobile-margin $alt-mobile-margin;
         justify-content: space-between;
         gap: $mobile-margin;
+        background-color: $background-page;
+
+        @include tablet {
+            justify-content: flex-end;
+            padding: $alt-mobile-margin $tablet-margin;
+            border-top: 0;
+        }
+    }
+
+    &__form-btn {
+        width: 100%;
+
+        //FIXME: FUNKY SIZING DETAIL... FIX LATER?
+        @include tablet {
+            width: 4.5rem;
+        }
     }
 }

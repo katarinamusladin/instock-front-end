@@ -7,8 +7,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: $alt-mobile-margin;
+    padding: 0 $alt-mobile-margin;
     gap: $mobile-margin;
+
+    @include tablet {
+        padding: 0 $tablet-margin;
+    }
 
     &__label {
         @extend .edit-warehouse-details;
@@ -24,6 +28,14 @@
 
         @include tablet {
             height: $tablet-desktop-btn-h;
+        }
+
+        &:focus {
+            @include form-active;
+        }
+
+        &--error {
+            @include form-error;
         }
     }
 }
