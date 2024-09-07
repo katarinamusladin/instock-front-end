@@ -143,6 +143,7 @@ p {
     @include flex-it(nowrap, space-between, normal, row);
     @include tablet {
       width: 10%;
+      
     }
   }
 
