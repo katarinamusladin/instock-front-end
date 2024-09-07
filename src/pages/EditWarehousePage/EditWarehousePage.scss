@@ -1,0 +1,44 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.edit-warehouse {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $background-page;
+    padding: $mobile-margin;
+    gap: $mobile-margin;
+
+    @include tablet {
+        padding: 0 $tablet-margin;
+    }
+
+    //TODO: INCLUDE DESKTOP MARGINS
+
+
+    &__page {
+        @include page-content;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__form-container {
+        @include divider-top--thick;
+    }
+
+    &__form-bottom {
+        @include divider-top-thick;
+    }
+
+    &__form-btns {
+        width: 100%;
+        display: flex;
+        padding: $alt-mobile-margin;
+        justify-content: space-between;
+        gap: $mobile-margin;
+    }
+}

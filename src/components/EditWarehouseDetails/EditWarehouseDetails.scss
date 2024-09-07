@@ -1,0 +1,29 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.edit-warehouse-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: $alt-mobile-margin;
+    gap: $mobile-margin;
+
+    &__label {
+        @extend .edit-warehouse-details;
+        padding: 0;
+        gap: 0.25rem;
+    }
+
+    &__input {
+        @include white-btn-gray-border;
+        height: $mobile-btn-h;
+        background-color: $background-page;
+        color: $primary-black;
+
+        @include tablet {
+            height: $tablet-desktop-btn-h;
+        }
+    }
+}

@@ -26,6 +26,16 @@
         }
     }
 
+    &--text {
+        width: 100%;
+        @include blue-btn-white-text;
+    }
+
+    &--text-secondary {
+        @include white-btn-gray-border;
+        width: 100%;
+    }
+
     &__text {
         display: none;
 
