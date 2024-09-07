@@ -13,8 +13,10 @@ function SearchHeader({title, type, addPath}) {
             className="warehouses__header-form-search"
             placeholder="Search..."
           />
-          <Link to={addPath} className="warehouses__header-form-button">
+          <Link to={addPath}>
+          <button className="warehouses__header-form-button">
             + Add New {type}
+          </button>
           </Link>
         </form>
       </div>
