@@ -10,7 +10,7 @@ export default function EditWarehouseDetails({
 	header,
 	labels,
 	details,
-	warehouseId,
+	submitFunc,
 }) {
 	return (
 		<section className="edit-warehouse-details">
