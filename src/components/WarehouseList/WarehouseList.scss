@@ -140,7 +140,7 @@ p {
   }
 
   &__action {
-    @include flex-it(nowrap, space-between, normal, row);
+    @include flex-it(nowrap, space-around, normal, row);
     @include tablet {
       width: 10%;
     }
