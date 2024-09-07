@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage.jsx";
 import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
+import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage.jsx";
 
 import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
@@ -27,6 +28,13 @@ function App() {
           <Route
             path="/inventories/:inventoryId"
             element={<InventoryDetailsPage />}
+          />
+
+          
+          {/* need to figure out what route to use */}
+          <Route
+            path="/inventories/add"
+            element={<AddInventoryPage />}
           />
 
           <Route path="/inventory" element={<InventoryPage />} />
