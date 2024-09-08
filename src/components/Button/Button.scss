@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     height: $mobile-btn-h;
+    cursor:pointer;
 
     &--nav {
         @include white-btn;

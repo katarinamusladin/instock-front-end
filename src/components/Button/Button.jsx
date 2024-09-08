@@ -24,12 +24,12 @@ export default function Button({
 		);
 	} else if (circle) {
 		return (
-			<NavLink to={`${path}`}>
+			<NavLink to={path}>
 				<button className={"btn btn--circle"}>
 					<img
 						className={`${icon ? "btn__image" : ""}`}
 						src={icon}
-						alt={altText}
+						alt={altText ? altText : ""}
 					/>
 					<p className="btn__text">Edit</p>
 				</button>

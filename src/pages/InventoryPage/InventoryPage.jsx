@@ -84,7 +84,7 @@ function InventoryPage() {
 
 	return (
 		<div className="warehouses">
-			<SearchHeader title="Inventory" />
+			<SearchHeader title="Inventory" type="Item" addPath="/inventories/add" />
 			<WarehouseHeaderList
 				columns={columnsData}
 				actionText="Actions"

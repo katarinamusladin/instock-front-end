@@ -67,7 +67,7 @@ function WarehouseList() {
 
   return (
     <div className="warehouses">
-      <SearchHeader title="Warehouses" />
+      <SearchHeader title="Warehouses" type="Warehouse" addPath="/warehouses/add"/>
       <WarehouseHeaderList
         columns={columnsData}
         actionText="Actions"

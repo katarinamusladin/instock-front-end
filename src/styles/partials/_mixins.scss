@@ -51,6 +51,7 @@
   border-radius: 0.25rem;
   position: relative;
   top: -2rem;
+  margin: 0rem 1rem;
 
   //TODO: include desktop if needed!
 }
@@ -125,6 +126,11 @@
 /*Form field mixins*/
 @mixin form-active {
   border: 0.0625rem solid $primary-indigo;
+}
+
+@mixin error-text {
+  @include p2;
+  color: $label-red;
 }
 
 @mixin form-error {

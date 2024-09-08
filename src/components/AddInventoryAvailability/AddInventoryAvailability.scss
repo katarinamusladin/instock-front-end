@@ -2,27 +2,54 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
+.err {
 
-.availability {
-
-    @include tablet {
-        width: 50%;
+    &__icon {
+        height: 16px;
+        width: 16px;
     }
-    // width: 100%;
+
+    &__error-message{
+        border-color: $label-red;
+        color: $label-red;
+        font-family: "Titillium Web";
+    }
+
+
+}
+
+input.error {
+    border-color: $label-red;
+}
+
+.availability__quantity.error, .availability__warehouse.error {
+  border-color: $label-red;
+}
+.availability {
+    display:flex;
+    flex-direction: column;
+
+
     &__quantity{
         padding: 8px;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
         margin-bottom: 1rem;
         padding-left: 16px;
+        &:active{
+            border-color: $primary-indigo;
+        }
     }
     &__warehouse{
         padding: 8px;
         border-radius: $border-radius;
-        border-color: $secondary-slate;
+        border-color: $secondary-cloud;
         margin-bottom: 1rem;
-        color: $secondary-slate;
+        color: $secondary-cloud;
         padding-left: 16px;
+        &:active{
+            border-color: $primary-indigo;
+        }
 
     }
 
@@ -30,15 +57,11 @@
         display: flex;
         width: 100%;
         font-family: 'Titillium Web';
-        color: $secondary-slate;
+        color: $secondary-cloud;
         padding-bottom: 1rem;
 
-        &:checked{
-            color: $primary-black;
-        }
-
-        &::before{
-            color:$secondary-slate;
+        &:active{
+            border-color: $primary-indigo;
         }
 
 
@@ -50,12 +73,17 @@
             padding-right: 8rem;
 
 
-            &:checked{
+
+            &:active{
                 color: $primary-black;
             }
 
             &::before{
                 color:$secondary-slate;
+            }
+
+            &:active{
+                border-color: $primary-indigo;
             }
 
             @include tablet{
@@ -67,12 +95,12 @@
             justify-content: flex-end;
             padding-left: .5rem;
 
-            &:checked{
+            &:active{
                 color: $primary-black;
             }
 
-            &::before{
-                color:$secondary-slate;
+            &:active{
+                border-color: $primary-indigo;
             }
         }
     }

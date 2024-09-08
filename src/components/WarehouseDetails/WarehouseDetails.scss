@@ -10,12 +10,14 @@
 
     &__content {
         @extend .details;
+        @include divider-top-thick;
         padding: $mobile-margin;
-        gap: $mobile-margin*2;
+        gap: $mobile-margin;
 
         @include tablet {
             flex-direction: row;
             justify-content: space-between;
+            gap: 0;
         }
     }
 

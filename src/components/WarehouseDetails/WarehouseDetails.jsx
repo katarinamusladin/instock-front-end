@@ -3,7 +3,7 @@ import backIcon from "../../assets/images/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/images/icons/edit-white-24px.svg";
 import PageHeader from "../PageHeader/PageHeader";
 
-export default function WarehouseDetails({ details }) {
+export default function WarehouseDetails({ details, warehouseId }) {
 	const {
 		warehouse_name,
 		address,
@@ -24,7 +24,7 @@ export default function WarehouseDetails({ details }) {
 				altText="back key icon"
 				btn="yes"
 				btnIcon={editIcon}
-				path2="/warehouses/:warehouseId/edit"
+				path2={`/warehouses/${warehouseId}/edit`}
 			/>
 			<div className="details__content">
 				<div className="details__address">

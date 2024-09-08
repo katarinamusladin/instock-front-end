@@ -1,31 +1,39 @@
 import "./EditWarehouseDetails.scss";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
-const BASE_URL = import.meta.env.VITE_BASE_URL;
-const PORT = import.meta.env.VITE_PORT;
+import errorIcon from "../../assets/images/icons/error-24px.svg";
 
 export default function EditWarehouseDetails({
 	header,
 	labels,
 	details,
-	warehouseId,
+	handleInputChange,
+	formErrors,
 }) {
 	return (
 		<section className="edit-warehouse-details">
 			<h2>{header}</h2>
-			{labels.map((item, index) => (
+			{details.map(([key, value], index) => (
 				<div key={index}>
-					<label className="edit-warehouse-details__label" htmlFor={`${item}`}>
-						<h3>{`${item}`}</h3>
+					<label className="edit-warehouse-details__label" htmlFor={key}>
+						<h3>
+							{Object.keys(labels).find((label) => labels[label] === key)}
+						</h3>
 						<input
-							className="edit-warehouse-details__input"
+							className={`edit-warehouse-details__input ${
+								formErrors[key] ? "edit-warehouse-details__input--error" : ""
+							}`}
 							type="text"
-							name={`${item}`}
-							id={`${item}`}
-							placeholder={details[index][1]}
-						></input>
+							name={key}
+							id={key}
+							placeholder={value}
+							value={value}
+							onChange={handleInputChange}
+						/>
+						{formErrors[key] && (
+							<span className="edit-warehouse-details__error">
+								<img src={errorIcon} alt="error" />
+								{formErrors[key]}
+							</span>
+						)}
 					</label>
 				</div>
 			))}
