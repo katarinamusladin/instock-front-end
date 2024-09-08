@@ -127,6 +127,11 @@
   border: 0.0625rem solid $primary-indigo;
 }
 
+@mixin error-text {
+  @include p2;
+  color: $label-red;
+}
+
 @mixin form-error {
   border: 0.0625rem solid $label-red;
 }

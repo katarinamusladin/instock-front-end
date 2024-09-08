@@ -38,4 +38,12 @@
             @include form-error;
         }
     }
+
+    &__error {
+        @include error-text;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
 }

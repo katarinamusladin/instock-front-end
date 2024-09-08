@@ -9,40 +9,39 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const PORT = import.meta.env.VITE_PORT;
 
 export default function WarehouseDetailsPage() {
-  document.title = "Warehouse Details";
-  const { warehouseId } = useParams();
-  const [details, setDetails] = useState(null);
+	document.title = "Warehouse Details";
+	const { warehouseId } = useParams();
+	const [details, setDetails] = useState(null);
 
-  async function getWarehouseDetails() {
-    try {
-      const response = await axios.get(
-        `${BASE_URL}:${PORT}/api/warehouses/${warehouseId}`
-      );
-      setDetails(response.data);
-    } catch (error) {
-      console.log(error, "issue with fetching data for single warehouse.");
-    }
-  }
+	async function getWarehouseDetails() {
+		try {
+			const response = await axios.get(
+				`${BASE_URL}:${PORT}/api/warehouses/${warehouseId}`
+			);
+			setDetails(response.data);
+		} catch (error) {
+			console.log(error, "issue with fetching data for single warehouse.");
+		}
+	}
 
-  useEffect(() => {
-    if (warehouseId === null) return;
-    getWarehouseDetails();
-  }, []);
+	useEffect(() => {
+		if (warehouseId === null) return;
+		getWarehouseDetails();
+	}, []);
 
-  if (details === null) {
-    return <h1>Loading... </h1>;
-  }
-  return (
-    <>
-      <article className="warehouse-details__container">
-        <section className="warehouse-details__details">
-          <WarehouseDetails details={details} />
-        </section>
-        <section className="warehouse-details__list">
-          {/* INSERT LIST COMPONENT HERE */}
-          <WarehouseInventoryList warehouseId={warehouseId} />
-        </section>
-      </article>
-    </>
-  );
+	if (details === null) {
+		return <h1>Loading... </h1>;
+	}
+	return (
+		<>
+			<article className="warehouse-details__container">
+				<section className="warehouse-details__details">
+					<WarehouseDetails details={details} warehouseId={warehouseId} />
+				</section>
+				<section className="warehouse-details__list">
+					<WarehouseInventoryList warehouseId={warehouseId} />
+				</section>
+			</article>
+		</>
+	);
 }

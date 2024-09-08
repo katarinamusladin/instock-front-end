@@ -1,95 +1,212 @@
 import "./EditWarehousePage.scss";
 import backIcon from "../../assets/images/icons/arrow_back-24px.svg";
-import editIcon from "../../assets/images/icons/edit-white-24px.svg";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import EditWarehouseDetails from "../../components/EditWarehouseDetails/EditWarehouseDetails";
 import Button from "../../components/Button/Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useDebounce } from "../../utils/utils";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const PORT = import.meta.env.VITE_PORT;
 
 export default function EditWarehousePage() {
-	const { warehouseId } = useParams();
-	const [editDetails, setEditDetails] = useState(null);
-
 	document.title = "Edit Warehouse Details";
+	const navigate = useNavigate();
+	const { warehouseId } = useParams();
+	const [editTopDetails, setEditTopDetails] = useState({});
+	const [editBotDetails, setEditBotDetails] = useState({});
+	const [debouncedEditTopDetails, setDebouncedEditTopDetails] = useState({});
+	const [debouncedEditBotDetails, setDebouncedEditBotDetails] = useState({});
+	const [formErrors, setFormErrors] = useState({});
+	const topHeader = "Warehouse Details";
+	const botHeader = "Contact Details";
+
+	//matching form labels to input field names/keys
+	const topLabels = {
+		"Warehouse Name": "warehouse_name",
+		"Street Address": "address",
+		City: "city",
+		Country: "country",
+	};
+	const botLabels = {
+		"Contact Name": "contact_name",
+		Position: "contact_position",
+		"Phone Number": "contact_phone",
+		Email: "contact_email",
+	};
+
+	// Debounced state for top and bot details - used to prevent onChange from happening every time a key is pressed (adjust delay if needed)
+	const debouncedTopDetails = useDebounce(editTopDetails, 1000);
+	const debouncedBotDetails = useDebounce(editBotDetails, 1000);
 
 	async function getWarehouseDetails() {
 		try {
 			const response = await axios.get(
 				`${BASE_URL}:${PORT}/api/warehouses/${warehouseId}`
 			);
-			setEditDetails(response.data);
+			const data = response.data;
+
+			//This is for setting the placeholder text to warehouse details
+			const topDetails = {
+				warehouse_name: data.warehouse_name || "",
+				address: data.address || "",
+				city: data.city || "",
+				country: data.country || "",
+			};
+			const botDetails = {
+				contact_name: data.contact_name || "",
+				contact_position: data.contact_position || "",
+				contact_phone: data.contact_phone || "",
+				contact_email: data.contact_email || "",
+			};
+
+			setEditTopDetails(topDetails);
+			setEditBotDetails(botDetails);
 		} catch (error) {
-			console.log(error, "issue with fetching data for single warehouse.");
+			console.log("Issue with fetching data for single warehouse:", error);
 		}
 	}
 
 	useEffect(() => {
 		if (warehouseId === null) return;
 		getWarehouseDetails();
-	}, []);
+	}, [warehouseId]);
 
-	if (editDetails === null) {
-		return <h1>Loading... </h1>;
-	}
-	const { warehouse_name } = editDetails;
-	const entryOfDetails = Object.entries(editDetails);
-	const topEntries = entryOfDetails.slice(0, 4);
-	const botEntries = entryOfDetails.slice(4, 8);
-	const topHeader = "Warehouse Details";
-	const botHeader = "Contact Details";
-	const topLabels = ["Warehouse Name", "Street Address", "City", "Country"];
-	const botLabels = ["Contact Name", "Position", "Phone Number", "Email"];
+	useEffect(() => {
+		setDebouncedEditTopDetails(debouncedTopDetails);
+	}, [debouncedTopDetails]);
+
+	useEffect(() => {
+		setDebouncedEditBotDetails(debouncedBotDetails);
+	}, [debouncedBotDetails]);
+
+	//Validation logic
+	const validateForm = () => {
+		let errors = {};
+		let isValid = true;
+
+		const allValues = { ...editTopDetails, ...editBotDetails };
+		for (let key in allValues) {
+			if (!allValues[key]) {
+				errors[key] = `This field is required!`;
+				isValid = false;
+			}
+		}
+
+		const email = editBotDetails.contact_email;
+		if (email && !email.includes("@" && ".")) {
+			errors.contact_email = "Email must include '@'.";
+			isValid = false;
+		}
+
+		// Phone number validation should allow for: (), +, -, spaces
+		const phone = editBotDetails.contact_phone;
+		if (phone && !/^[0-9+\-\(\)\s]+$/.test(phone)) {
+			errors.contact_phone = "Invalid phone number.";
+			isValid = false;
+		}
+
+		setFormErrors(errors);
+		return isValid;
+	};
+
+	// const cancelHandle = () => {
+	// 	navigate(`/warehouses/${warehouseId}`, { replace: true });
+	// };
+
+	//form submission and updating server/ backend db
+	const editWarehouseHandle = async (event) => {
+		event.preventDefault();
+
+		if (!validateForm()) {
+			console.log("Form validation failed.");
+			return;
+		}
+
+		const pckg = {
+			...debouncedEditTopDetails,
+			...debouncedEditBotDetails,
+		};
+
+		try {
+			const response = await axios.put(
+				`${BASE_URL}:${PORT}/api/warehouses/${warehouseId}`,
+				pckg
+			);
+			console.log("API Response:", response.data);
+			getWarehouseDetails();
+			navigate(`/warehouses/${warehouseId}`, { replace: true });
+		} catch (error) {
+			console.error("Error submitting form:", error);
+		}
+	};
+
+	const handleInputChange = (section) => {
+		return (event) => {
+			const { name, value } = event.target;
+			if (section === "top") {
+				setEditTopDetails((oldValues) => ({
+					...oldValues,
+					[name]: value,
+				}));
+			} else if (section === "bot") {
+				setEditBotDetails((oldValues) => ({
+					...oldValues,
+					[name]: value,
+				}));
+			}
+		};
+	};
 
 	return (
 		<article className="edit-warehouse">
 			<section className="edit-warehouse__page">
 				<PageHeader
-					path1="/home"
+					path1={`/warehouses/${warehouseId}`}
 					icon={backIcon}
 					text="Edit Warehouse"
 					altText="back key icon"
 				/>
 				<div className="edit-warehouse__form-container">
-					<form className="edit-warehouse__form">
+					<form className="edit-warehouse__form" onSubmit={editWarehouseHandle}>
 						<div className="edit-warehouse__form-top">
 							<div className="edit-warehouse__half edit-warehouse__half--first">
 								<EditWarehouseDetails
 									header={topHeader}
 									labels={topLabels}
-									details={topEntries}
-									warehouseId={warehouseId}
+									details={Object.entries(editTopDetails)}
+									handleInputChange={handleInputChange("top")}
+									formErrors={formErrors}
 								/>
 							</div>
 							<div className="edit-warehouse__half">
 								<EditWarehouseDetails
 									header={botHeader}
 									labels={botLabels}
-									details={botEntries}
-									warehouseId={warehouseId}
+									details={Object.entries(editBotDetails)}
+									handleInputChange={handleInputChange("bot")}
+									formErrors={formErrors}
 								/>
 							</div>
 						</div>
 						<div className="edit-warehouse__form-btns">
-							{/* TODO: CHANGE FROM BUTTON TO LINK AND STYLE IT LIKE BUTTON! */}
 							<div className="edit-warehouse__form-btn">
-								<Button
-									path={`/warehouses/edit/${warehouseId}`}
-									text="Cancel"
-									secondary="yes"
-									// onClick={cancelHandle}
-								/>
+								<a
+									onClick={() =>
+										navigate(`/warehouses/${warehouseId}`, { replace: true })
+									}
+									className="edit-warehouse__cancel"
+								>
+									Cancel
+								</a>
 							</div>
 							<div className="edit-warehouse__form-btn">
 								<Button
 									type="submit"
 									path={`/warehouses/${warehouseId}`}
 									text="Save"
-									// onSubmit={editWarehouseHandle}
 								/>
 							</div>
 						</div>
