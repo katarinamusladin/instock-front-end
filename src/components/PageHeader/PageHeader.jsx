@@ -16,7 +16,9 @@ export default function PageHeader({
 		return (
 			<div className="page-header">
 				<Button path={path1} icon={icon} alt={altText} nav="yes" />
+				<div className="page-header__left">
 				<h1 className="page-header__header">{text}</h1>
+				</div>
 				<Button path={path2} icon={btnIcon} circle="yes" />
 			</div>
 		);

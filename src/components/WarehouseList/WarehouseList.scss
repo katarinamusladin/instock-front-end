@@ -51,6 +51,9 @@ p {
       @include flex-it(nowrap, space-between, normal, row);
       border-top:none;
       border-bottom: 0.0938rem solid $secondary-cloud;
+      &:last-child{
+        border-bottom: none;
+      }
       &:hover {
         background-color: rgba($primary-indigo, 0.1);
       }
