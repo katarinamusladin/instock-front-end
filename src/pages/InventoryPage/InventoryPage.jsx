@@ -153,8 +153,8 @@ function InventoryPage() {
 			{modalVisible && (
 				<DeleteModal
 					onClose={handleCloseModal}
-					title={`Delete ${selectedItem.item_name} item?`}
-					message={`Are you sure you want to delete ${selectedItem.item_name}? This action cannot be undone.`}
+					title={`Delete ${selectedItem.item_name} inventory item?`}
+					message={`Please confirm that you’d like to delete ${selectedItem.item_name} from the inventory list. You won’t be able to undo this action.`}
 					onConfirm={handleDeleteConfirm}
 				/>
 			)}
