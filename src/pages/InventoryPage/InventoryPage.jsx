@@ -12,6 +12,7 @@ import "./InventoryPage.scss";
 import { NavLink, useParams } from "react-router-dom";
 
 function InventoryPage() {
+  document.title = "Inventory";
 	const inventoryId = useParams();
 	const [inventoryItems, setInventoryItems] = useState([]);
 	const [warehouses, setWarehouses] = useState({});

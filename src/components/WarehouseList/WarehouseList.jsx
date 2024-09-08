@@ -10,6 +10,7 @@ import SearchHeader from "../SearchHeader/SearchHeader";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function WarehouseList() {
+  document.title = "Warehouses";
   const [warehouses, setWarehouses] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedWarehouse, setSelectedWarehouse] = useState(null);
