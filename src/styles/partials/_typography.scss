@@ -88,3 +88,13 @@ p {
         line-height: 1.125rem;
     }
 }
+
+input {
+    border: 1px $secondary-cloud solid;
+    font-family: 'Titillium Web';
+}
+
+select{
+    border: 1px $secondary-cloud solid;
+    font-family: 'Titillium Web'
+}

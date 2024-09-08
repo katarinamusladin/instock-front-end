@@ -1,7 +1,26 @@
 import React from "react";
 import "./AddInventoryAvailability.scss";
+import { useEffect } from "react";
 
-export default function AddInventoryAvailability({status, setStatus, handleQuantityChange, setWarehouse, warehouses}) {
+export default function AddInventoryAvailability({setQuantity, status, setStatus, handleQuantityChange, setWarehouse, warehouses, errors}) {
+    const errorMessage = () => {
+          
+      return ( 
+      <>
+      <div className="err">
+          <img  className = "err__icon" src= "/src/assets/images/icons/error-24px.svg" alt= "exclamation mark"/>
+          <small className="err__error-message"> This field is required</small>
+      </div>
+      </>
+      )
+  };
+
+  useEffect(() => {
+    if (status === "OutStock") {
+      setQuantity(0);
+    }
+  }, [status, setQuantity]);
+
   return (
     <>
       <section className="inventory-add__itemAvail">
@@ -30,18 +49,23 @@ export default function AddInventoryAvailability({status, setStatus, handleQuant
               Out of stock{" "}
             </label>
           </section>
-          <h3> Quantity </h3>
-          <input
-            required
-            className="availability__quantity"
-            type="number"
-            placeholder="0"
-            onChange={handleQuantityChange}
-          ></input>
-          <h3 for="select"> Warehouse </h3>
+          
+          {status == "InStock" && (
+            <>
+              <h3> Quantity </h3>
+              <input
+                name="quantity"
+                className= {`availability__quantity ${errors.quantity ? "error" : ""}`}
+                type="number"
+                placeholder="0"
+                onChange={handleQuantityChange}
+              ></input>
+              {errors.quantity && errorMessage ()}
+            </>
+          )}
+          <h3 htmlFor="select"> Warehouse </h3>
           <select
-            required
-            className="availability__warehouse"
+            className= {`availability__warehouse ${errors.warehouse_id ? "error" : ""}`}
             name="Select"
             id="select"
             placeholder="Please Select"
@@ -56,6 +80,7 @@ export default function AddInventoryAvailability({status, setStatus, handleQuant
               </option>
             ))}
           </select>
+          {errors.warehouse_id && errorMessage ()}
         </section>
       </section>
     </>
