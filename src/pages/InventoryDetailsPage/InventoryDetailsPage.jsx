@@ -17,6 +17,7 @@ export default function InventoryDetailsPage() {
 			const response = await axios.get(
 				`${BASE_URL}:${PORT}/api/inventories/${inventoryId}`
 			);
+			console.log(response.data, "get inventories by inventory id");
 			setItemDetails(response.data);
 		} catch (error) {
 			console.log(error, "issue with fetching data for single inventory item.");
@@ -35,7 +36,7 @@ export default function InventoryDetailsPage() {
 			<>
 				<article className="inventory-details__container">
 					<section className="inventory-details__details">
-						<InventoryDetails details={itemDetails} />
+						<InventoryDetails details={itemDetails} inventoryId={inventoryId} />
 					</section>
 				</article>
 			</>

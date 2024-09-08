@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage.jsx";
 import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsPage.jsx";
-import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage.jsx";
+// import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage.jsx";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage.jsx";
 import EditWarehousePage from "./pages/EditWarehousePage/EditWarehousePage.jsx";
 import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage.jsx";
@@ -35,25 +35,19 @@ function App() {
 						path="/inventories/:inventoryId"
 						element={<InventoryDetailsPage />}
 					/>
-
-					{/* need to figure out what route to use */}
-					<Route path="/inventories/add" element={<AddInventoryPage />} />
-
-					<Route
-						path="/warehouses/add"
-						element={<AddWarehousePage />} />
-			
-
-					<Route path="/inventory" element={<InventoryPage />} />
 					<Route
 						path="/inventories/:inventoryId/edit"
 						element={<EditInventoryPage />}
 					/>
+					{/* need to figure out what route to use */}
+					<Route path="/inventories/add" element={<AddInventoryPage />} />
+
+					<Route path="/inventory" element={<InventoryPage />} />
+
 					{/*<Route
 						path="/warehouses/:warehouseId/add"
 						element={<WarehouseAddPage />}
 					/>
-					
 					<Route
 						path="/inventory/:inventoryId/add"
 						element={<InventorAddPage />}

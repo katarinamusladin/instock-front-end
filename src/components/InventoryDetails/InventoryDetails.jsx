@@ -3,7 +3,7 @@ import backIcon from "../../assets/images/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/images/icons/edit-white-24px.svg";
 import PageHeader from "../PageHeader/PageHeader";
 
-export default function InventoryDetails({ details }) {
+export default function InventoryDetails({ details, inventoryId }) {
 	const { warehouse_name, item_name, description, category, quantity } =
 		details;
 	return (
@@ -16,7 +16,7 @@ export default function InventoryDetails({ details }) {
 					altText="back key icon"
 					btn="yes"
 					btnIcon={editIcon}
-					path2="/inventories/:inventoryId/edit"
+					path2={`/inventories/${inventoryId}/edit`}
 				/>
 			</div>
 			<div className="item-details__content">
