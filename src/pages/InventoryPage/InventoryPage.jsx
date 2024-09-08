@@ -12,8 +12,9 @@ import "./InventoryPage.scss";
 import { NavLink, useParams } from "react-router-dom";
 
 function InventoryPage() {
-  document.title = "Inventory";
+	document.title = "Inventory";
 	const inventoryId = useParams();
+	console.log(inventoryId, "id?");
 	const [inventoryItems, setInventoryItems] = useState([]);
 	const [warehouses, setWarehouses] = useState({});
 	const [loading, setLoading] = useState(true);
@@ -142,9 +143,11 @@ function InventoryPage() {
 							>
 								<img src={deleteIcon} alt="Delete icon" />
 							</button>
-							<button className="warehouses__icon-button">
-								<img src={editIcon} alt="Edit icon" />
-							</button>
+							<NavLink to={`/inventories/${item.id}/edit`}>
+								<button className="warehouses__icon-button">
+									<img src={editIcon} alt="Edit icon" />
+								</button>
+							</NavLink>
 						</div>
 					</div>
 				);
