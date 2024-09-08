@@ -12,7 +12,6 @@ export default function PageHeader({
 	path2,
 }) {
 	const navigate = useNavigate();
-	console.log(path1);
 	if (btn) {
 		return (
 			<div className="page-header">

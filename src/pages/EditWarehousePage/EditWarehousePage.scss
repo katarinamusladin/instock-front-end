@@ -79,4 +79,22 @@
             width: 4.5rem;
         }
     }
+
+    &__cancel {
+        @include white-btn-gray-border;
+        @include p2;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $mobile-btn-h;
+        color: $secondary-slate;
+        font-weight: 700;
+        text-decoration: none;
+
+        &:link,
+        &:visited {
+            text-decoration: none;
+        }
+    }
 }
