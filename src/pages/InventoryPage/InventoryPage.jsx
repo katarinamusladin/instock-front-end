@@ -11,6 +11,7 @@ import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import "./InventoryPage.scss";
 
 function InventoryPage() {
+  document.title = "Inventory";
   const [inventoryItems, setInventoryItems] = useState([]);
   const [warehouses, setWarehouses] = useState({});
   const [loading, setLoading] = useState(true);
