@@ -71,7 +71,7 @@ p {
   }
 
   &__column {
-    @include flex-it(wrap, flex-start, normal, column);
+    @include flex-it(nowrap, flex-start, normal, column);
     width: 45%;
 
     @include tablet {
