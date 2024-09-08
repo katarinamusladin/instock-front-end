@@ -2,7 +2,7 @@ import "./EditWarehousePage.scss";
 import backIcon from "../../assets/images/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/images/icons/edit-white-24px.svg";
 import PageHeader from "../../components/PageHeader/PageHeader";
-import EditWarehouseDetails from "../../components/EditWarehouseDetails/EditWarehouseDetails";
+// import EditWarehouseDetails from "../../components/EditWarehouseDetails/EditWarehouseDetails";
 import Button from "../../components/Button/Button";
 import axios from "axios";
 import { useEffect, useState } from "react";

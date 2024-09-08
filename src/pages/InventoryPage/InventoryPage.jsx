@@ -9,153 +9,156 @@ import arrowRight from "../../assets/images/icons/chevron_right-24px.svg";
 import "./InventoryPage.scss";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import "./InventoryPage.scss";
+import { NavLink, useParams } from "react-router-dom";
 
 function InventoryPage() {
-  const [inventoryItems, setInventoryItems] = useState([]);
-  const [warehouses, setWarehouses] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
+	const inventoryId = useParams();
+	const [inventoryItems, setInventoryItems] = useState([]);
+	const [warehouses, setWarehouses] = useState({});
+	const [loading, setLoading] = useState(true);
+	const [modalVisible, setModalVisible] = useState(false);
+	const [selectedItem, setSelectedItem] = useState(null);
 
-  const columnsData = [
-    ["Inventory Item", "Category"],
-    ["Status", "Quantity", "Warehouse"],
-  ];
+	const columnsData = [
+		["Inventory Item", "Category"],
+		["Status", "Quantity", "Warehouse"],
+	];
 
-  useEffect(() => {
-    const fetchInventoryItems = async () => {
-      try {
-        const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
-          import.meta.env.VITE_PORT
-        }`;
-        const responseInv = await axios.get(`${baseUrl}/api/inventories`);
-        const responseWar = await axios.get(`${baseUrl}/api/warehouses`);
+	useEffect(() => {
+		const fetchInventoryItems = async () => {
+			try {
+				const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
+					import.meta.env.VITE_PORT
+				}`;
+				const responseInv = await axios.get(`${baseUrl}/api/inventories`);
+				const responseWar = await axios.get(`${baseUrl}/api/warehouses`);
 
-        const warehouseMap = responseWar.data.reduce((acc, warehouse) => {
-          acc[warehouse.id] = warehouse.warehouse_name;
-          return acc;
-        }, {});
+				const warehouseMap = responseWar.data.reduce((acc, warehouse) => {
+					acc[warehouse.id] = warehouse.warehouse_name;
+					return acc;
+				}, {});
 
-        setInventoryItems(responseInv.data);
-        setWarehouses(warehouseMap);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching inventory data:", error);
-        setLoading(false);
-      }
-    };
+				setInventoryItems(responseInv.data);
+				setWarehouses(warehouseMap);
+				setLoading(false);
+			} catch (error) {
+				console.error("Error fetching inventory data:", error);
+				setLoading(false);
+			}
+		};
 
-    fetchInventoryItems();
-  }, []);
+		fetchInventoryItems();
+	}, []);
 
-  const handleDeleteClick = (item) => {
-    setSelectedItem(item);
-    setModalVisible(true);
-  };
+	const handleDeleteClick = (item) => {
+		setSelectedItem(item);
+		setModalVisible(true);
+	};
 
-  const handleDeleteConfirm = async () => {
-    try {
-      const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
-        import.meta.env.VITE_PORT
-      }`;
-      await axios.delete(`${baseUrl}/api/inventories/${selectedItem.id}`);
+	const handleDeleteConfirm = async () => {
+		try {
+			const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
+				import.meta.env.VITE_PORT
+			}`;
+			await axios.delete(`${baseUrl}/api/inventories/${selectedItem.id}`);
 
-      setInventoryItems((prevItems) =>
-        prevItems.filter((item) => item.id !== selectedItem.id)
-      );
+			setInventoryItems((prevItems) =>
+				prevItems.filter((item) => item.id !== selectedItem.id)
+			);
 
-      setModalVisible(false);
-      setSelectedItem(null);
-    } catch (error) {
-      console.error("Error deleting inventory item:", error);
-    }
-  };
+			setModalVisible(false);
+			setSelectedItem(null);
+		} catch (error) {
+			console.error("Error deleting inventory item:", error);
+		}
+	};
 
-  const handleCloseModal = () => {
-    setModalVisible(false);
-    setSelectedItem(null);
-  };
+	const handleCloseModal = () => {
+		setModalVisible(false);
+		setSelectedItem(null);
+	};
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
-  return (
-    <div className="warehouses">
-      <SearchHeader title="Inventory" />
-      <WarehouseHeaderList
-        columns={columnsData}
-        actionText="Actions"
-        iconSrc={Arrows}
-      />
+	return (
+		<div className="warehouses">
+			<SearchHeader title="Inventory" />
+			<WarehouseHeaderList
+				columns={columnsData}
+				actionText="Actions"
+				iconSrc={Arrows}
+			/>
 
-      {inventoryItems.map((item) => {
-        const statusClass =
-          item.status === "In Stock"
-            ? "status-in-stock"
-            : "status-out-of-stock";
+			{inventoryItems.map((item) => {
+				const statusClass =
+					item.status === "In Stock"
+						? "status-in-stock"
+						: "status-out-of-stock";
 
-        return (
-          <div key={item.id} className="warehouses__item">
-            <div className="warehouses__text-box">
-              <div className="warehouses__column">
-                <div className="warehouses__content warehouses__content--long">
-                  <h3 className="warehouses__mobile-header">Inventory Item</h3>
-                  <div className="warehouses__name-wrapper">
-                    <p className="warehouses__name">{item.item_name}</p>
-                    <img
-                      src={arrowRight}
-                      alt="Arrow Right"
-                      className="warehouses__name--icon"
-                    />
-                  </div>
-                </div>
-                <div className="warehouses__content warehouses__content--long">
-                  <h3 className="warehouses__mobile-header">Category</h3>
-                  <p>{item.category}</p>
-                </div>
-              </div>
-              <div className="warehouses__column">
-                <div className="warehouses__content warehouses__content--short">
-                  <h3 className="warehouses__mobile-header">Status</h3>
-                  <p className={statusClass}>{item.status}</p>
-                </div>
-                <div className="warehouses__content warehouses__content--short">
-                  <h3 className="warehouses__mobile-header">QTY</h3>
-                  <p>{item.quantity}</p>
-                </div>
-                <div className="warehouses__content warehouses__content--short">
-                  <h3 className="warehouses__mobile-header">Warehouse</h3>
-                  <p>{warehouses[item.warehouse_id]}</p>
-                </div>
-              </div>
-            </div>
-            <div className="warehouses__action">
-              <h3 className="warehouses__mobile-header active">ACTIONS</h3>
-              <button
-                className="warehouses__icon-button"
-                onClick={() => handleDeleteClick(item)}
-              >
-                <img src={deleteIcon} alt="Delete icon" />
-              </button>
-              <button className="warehouses__icon-button">
-                <img src={editIcon} alt="Edit icon" />
-              </button>
-            </div>
-          </div>
-        );
-      })}
+				return (
+					<div key={item.id} className="warehouses__item">
+						<div className="warehouses__text-box">
+							<div className="warehouses__column">
+								<div className="warehouses__content warehouses__content--long">
+									<h3 className="warehouses__mobile-header">Inventory Item</h3>
+									<div className="warehouses__name-wrapper">
+										{/* TODO: ADD NAVIGATION FROM ITEM TO ITEM DETAILS PAGE */}
+										<p className="warehouses__name">{item.item_name}</p>
+										<img
+											src={arrowRight}
+											alt="Arrow Right"
+											className="warehouses__name--icon"
+										/>
+									</div>
+								</div>
+								<div className="warehouses__content warehouses__content--long">
+									<h3 className="warehouses__mobile-header">Category</h3>
+									<p>{item.category}</p>
+								</div>
+							</div>
+							<div className="warehouses__column">
+								<div className="warehouses__content warehouses__content--short">
+									<h3 className="warehouses__mobile-header">Status</h3>
+									<p className={statusClass}>{item.status}</p>
+								</div>
+								<div className="warehouses__content warehouses__content--short">
+									<h3 className="warehouses__mobile-header">QTY</h3>
+									<p>{item.quantity}</p>
+								</div>
+								<div className="warehouses__content warehouses__content--short">
+									<h3 className="warehouses__mobile-header">Warehouse</h3>
+									<p>{warehouses[item.warehouse_id]}</p>
+								</div>
+							</div>
+						</div>
+						<div className="warehouses__action">
+							<h3 className="warehouses__mobile-header active">ACTIONS</h3>
+							<button
+								className="warehouses__icon-button"
+								onClick={() => handleDeleteClick(item)}
+							>
+								<img src={deleteIcon} alt="Delete icon" />
+							</button>
+							<button className="warehouses__icon-button">
+								<img src={editIcon} alt="Edit icon" />
+							</button>
+						</div>
+					</div>
+				);
+			})}
 
-      {modalVisible && (
-        <DeleteModal
-          onClose={handleCloseModal}
-          title={`Delete ${selectedItem.item_name} item?`}
-          message={`Are you sure you want to delete ${selectedItem.item_name}? This action cannot be undone.`}
-          onConfirm={handleDeleteConfirm}
-        />
-      )}
-    </div>
-  );
+			{modalVisible && (
+				<DeleteModal
+					onClose={handleCloseModal}
+					title={`Delete ${selectedItem.item_name} item?`}
+					message={`Are you sure you want to delete ${selectedItem.item_name}? This action cannot be undone.`}
+					onConfirm={handleDeleteConfirm}
+				/>
+			)}
+		</div>
+	);
 }
 
 export default InventoryPage;

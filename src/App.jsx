@@ -9,6 +9,7 @@ import InventoryDetailsPage from "./pages/InventoryDetailsPage/InventoryDetailsP
 // import AddWarehousePage from "./pages/AddWarehousePage/AddWarehousePage.jsx";
 import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage.jsx";
 import EditWarehousePage from "./pages/EditWarehousePage/EditWarehousePage.jsx";
+import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
 
@@ -39,15 +40,15 @@ function App() {
 					<Route path="/inventories/add" element={<AddInventoryPage />} />
 
 					<Route path="/inventory" element={<InventoryPage />} />
-
+					<Route
+						path="/inventories/:inventoryId/edit"
+						element={<EditInventoryPage />}
+					/>
 					{/*<Route
 						path="/warehouses/:warehouseId/add"
 						element={<WarehouseAddPage />}
 					/>
-					<Route
-						path="/inventory/:inventoryId/edit"
-						element={<InventoryEditPage />}
-					/>
+					
 					<Route
 						path="/inventory/:inventoryId/add"
 						element={<InventorAddPage />}
