@@ -2,6 +2,18 @@ import React from "react";
 import "./AddInventoryDetails.scss";
 
 export default function AddInventoryDetails( { setCategory, setItemName,setDescription, categories, errors } ) {
+    const errorMessage = () => {
+          
+      return ( 
+      <>
+      <div className="err">
+          <img  className = "err__icon" src= "/src/assets/images/icons/error-24px.svg" alt= "exclamation mark"/>
+          <small className="err__error-message"> This field is required</small>
+      </div>
+      </>
+      )
+  }
+  
   return (
     <>
       <section
@@ -15,22 +27,19 @@ export default function AddInventoryDetails( { setCategory, setItemName,setDescr
             type="text"
             placeholder="Item Name"
             onChange={(e) => setItemName(e.target.value)}
-            required
           ></input>
-          {errors.item_name && <small className="error-message">Field required</small> }
+          {errors.item_name && errorMessage() }
           <h3> Description </h3>
           <input
-            required
             className={`details__description ${errors.description ? "error" : ""}`}
             type="text"
             placeholder="Please enter a brief item description..."
             onChange={(e) => setDescription(e.target.value)}
           ></input>
-          {errors.description && <small className="error-message">Field required</small>}
+          {errors.description && errorMessage() }
           <h3 htmlFor="select"> Category</h3>
           <select
-            required
-            className="details__category"
+            className={`details__category ${errors.category ? "error" : ""}`}
             name="Select"
             id="select"
             placeholder="Please Select"
@@ -45,6 +54,7 @@ export default function AddInventoryDetails( { setCategory, setItemName,setDescr
               </option>
             ))}
           </select>
+          {errors.category && errorMessage()}
         </section>
       </section>
     </>

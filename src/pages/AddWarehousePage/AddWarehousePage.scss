@@ -1,0 +1,78 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+
+select:required:invalid {
+    color: gray;
+  }
+  option[value=""][disabled] {
+    display: none;
+  }
+  option {
+    color: $secondary-cloud;
+  }
+  
+  .container {
+      @include tablet {
+          width: 100%;
+          display:flex;
+      }
+      &__left{
+          @include tablet {
+              width: 50%;
+              @include divider-right-thick;
+              
+          }
+      }
+      &__right{
+          @include tablet {
+              width: 50%;
+      }
+  }
+  }
+  
+  .clicking {
+      @include tablet {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          
+      }
+  
+  }
+
+
+  .warehouse-add {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background-color: $background-page;
+
+        @include tablet {
+            padding: 0 $tablet-margin;
+        }
+        @include desktop {
+            padding: 0 $desktop-margin;
+        }
+    }
+
+    &__details {
+        @include page-content;
+        margin: $mobile-margin;
+    }
+
+    &__itemDetails {
+        padding: $mobile-margin;
+        @include divider-top-thick;
+        // width:100%;
+
+        &--header{
+            padding-bottom: 1rem;
+        }
+    }
+}

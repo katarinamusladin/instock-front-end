@@ -1,0 +1,57 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.clicker{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: $background-page;
+    align-content: center;
+    padding-top: 1rem;
+
+    @include tablet {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+    }
+
+    &__cancel {
+        @include white-btn-gray-border;
+        padding: .5rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+
+        &:active{
+            color: $primary-indigo;
+            border-color: $primary-indigo;
+        }
+
+        &:hover{
+            color: $primary-indigo;
+            border-color: $primary-indigo;
+        }
+    }
+    
+    &__add{
+        @include blue-btn-white-text;
+        padding: .5rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+
+        &:active{
+            background-color: $background-header;
+        }
+
+        &:hover{
+            background-color: $background-header;
+        }
+
+        @include tablet {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+    
+}

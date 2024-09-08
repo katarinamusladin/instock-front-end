@@ -2,21 +2,11 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
-.err {
 
-    &__icon {
-        height: 16px;
-        width: 16px;
-    }
-
-    &__error-message{
+.error-message{
         border-color: $label-red;
         color: $label-red;
-        font-family: "Titillium Web";
     }
-
-
-}
 
 input.error {
     border-color: $label-red;
@@ -58,22 +48,40 @@ input.error {
 
     }
 
-    &__itemAvail{
-        padding: $mobile-margin;
-        @include divider-top-thick;
-        width: 100%;
-        flex-shrink: 0;
-        
-
-        &--header{
-            padding-bottom: 1rem;
-        }
-    }
-
 }
 
 .details {
-    &__name{
+    &__warehouse{
+        padding: 8px;
+        border-radius: $border-radius;
+        border-color: $secondary-cloud;
+        margin-bottom: 1rem;
+        padding-left: 16px;
+        &:active{
+            border-color: $primary-indigo;
+        }
+    }
+    &__street{
+        padding: 8px;
+        border-radius: $border-radius;
+        border-color: $secondary-cloud;
+        margin-bottom: 1rem;
+        padding-left: 16px;
+        &:active{
+            border-color: $primary-indigo;
+        }
+    }
+    &__city{
+        padding: 8px;
+        border-radius: $border-radius;
+        border-color: $secondary-cloud;
+        margin-bottom: 1rem;
+        padding-left: 16px;
+        &:active{
+            border-color: $primary-indigo;
+        }
+    }
+    &__country{
         padding: 8px;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
@@ -84,28 +92,4 @@ input.error {
         }
     }
 
-    &__description{
-        padding: 8px;
-        border-radius: $border-radius;
-        border-color: $secondary-cloud;
-        padding-bottom: 5rem;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
-            border-color: $primary-indigo;
-        }
-    }
-
-    &__category{
-        padding: 8px;
-        border-radius: $border-radius;
-        border-color: $secondary-slate;
-        margin-bottom: 1rem;
-        color: $secondary-slate;
-        padding-left: 16px;
-        &:active{
-            border-color: $primary-indigo;
-        }
-
-    }
 }

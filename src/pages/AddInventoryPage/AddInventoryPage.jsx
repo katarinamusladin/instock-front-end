@@ -106,17 +106,19 @@ export default function AddInventoryPage() {
             icon={"/src/assets/images/icons/arrow_back-24px.svg"}
             text={"Add New Inventory Item"}
           />
-          <form className= "wrapper" onSubmit={handleFormSubmit}>
-            <div className="wrapper__left">
-              <AddInventoryDetails setCategory={setCategory} setItemName= {setItemName} setDescription= {setDescription} categories={categories} errors={errors} />
+          <form onSubmit={handleFormSubmit}>
+            <div className= "wrapper">
+              <div className="wrapper__left">
+                <AddInventoryDetails setCategory={setCategory} setItemName= {setItemName} setDescription= {setDescription} categories={categories} errors={errors} />
+              </div>
+              <div className="wrapper__right">
+                <AddInventoryAvailability  setQuantity = {setQuantity} warehouses={warehouses} status= {status} handleQuantityChange={handleQuantityChange} setWarehouse={setWarehouse} setStatus={setStatus} errors={errors}/>
+              </div>
             </div>
-            <div className="wrapper__right">
-              <AddInventoryAvailability  warehouses={warehouses} status= {status} handleQuantityChange={handleQuantityChange} setWarehouse={setWarehouse} setStatus={setStatus} errors={errors}/>
+            <div className= "click">
+              <AddInventoryButtons onClick= {handleFormSubmit}/>
             </div>
           </form>
-          <div className= "click">
-            <AddInventoryButtons onClick= {handleFormSubmit}/>
-          </div>
         </section>
       </article>
     </>

@@ -2,7 +2,29 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
+.err {
 
+    &__icon {
+        height: 16px;
+        width: 16px;
+    }
+
+    &__error-message{
+        border-color: $label-red;
+        color: $label-red;
+        font-family: "Titillium Web";
+    }
+
+
+}
+
+input.error {
+    border-color: $label-red;
+}
+
+.availability__quantity.error, .availability__warehouse.error {
+  border-color: $label-red;
+}
 .availability {
 
     @include tablet {
@@ -15,6 +37,9 @@
         border-color: $secondary-cloud;
         margin-bottom: 1rem;
         padding-left: 16px;
+        &:active{
+            border-color: $primary-indigo;
+        }
     }
     &__warehouse{
         padding: 8px;
@@ -23,6 +48,9 @@
         margin-bottom: 1rem;
         color: $secondary-slate;
         padding-left: 16px;
+        &:active{
+            border-color: $primary-indigo;
+        }
 
     }
 
@@ -39,6 +67,9 @@
 
         &::before{
             color:$secondary-slate;
+        }
+        &:active{
+            border-color: $primary-indigo;
         }
 
 
@@ -58,6 +89,10 @@
                 color:$secondary-slate;
             }
 
+            &:active{
+                border-color: $primary-indigo;
+            }
+
             @include tablet{
                 padding-right: 5rem;
             }
@@ -73,6 +108,10 @@
 
             &::before{
                 color:$secondary-slate;
+            }
+
+            &:active{
+                border-color: $primary-indigo;
             }
         }
     }
