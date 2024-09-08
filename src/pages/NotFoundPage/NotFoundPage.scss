@@ -2,3 +2,67 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
+
+.not-found {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: $mobile-margin;
+    background-color: $background-page;
+    flex-wrap: wrap;
+
+    @include tablet {
+        padding: 0 $tablet-margin;
+    }
+
+    //TODO: INCLUDE DESKTOP MARGINS
+
+    &__details {
+        @include page-content;
+        @include divider-bottom-thick;
+        width: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        padding: 0 $mobile-margin;
+        flex-wrap: wrap;
+        gap: $mobile-margin;
+    }
+
+    &__text {
+        @include p2;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__btn {
+        @include blue-btn-white-text;
+        width: 100%;
+        height: $mobile-tag-h;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 $mobile-margin;
+        font-weight: 400;
+    }
+}
