@@ -44,8 +44,10 @@ p {
   }
 
   &__item {
+   
     padding: 1rem 0;
     border-top: 0.0938rem solid $secondary-cloud;
+    
 
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
@@ -136,6 +138,7 @@ p {
   &__content {
     width: auto;
     box-sizing: border-box;
+  
 
     &--short {
       @include tablet {
