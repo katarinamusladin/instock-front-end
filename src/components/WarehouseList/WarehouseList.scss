@@ -89,6 +89,7 @@ p {
     width: 100%;
     padding-left: 1.7rem;
     padding: 1rem;
+    padding-bottom: 0.5rem;
 
     @include tablet {
       background-color: $background-page;

@@ -10,6 +10,7 @@ import SearchHeader from "../SearchHeader/SearchHeader";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function WarehouseList() {
+  document.title = "Warehouses";
   const [warehouses, setWarehouses] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedWarehouse, setSelectedWarehouse] = useState(null);
@@ -133,7 +134,7 @@ function WarehouseList() {
         <DeleteModal
           onClose={handleCloseModal}
           title={`Delete ${selectedWarehouse?.warehouse_name} warehouse?`}
-          message={`Are you sure you want to delete ${selectedWarehouse.warehouse_name}? This action cannot be undone.`}
+          message = {`Please confirm that you’d like to delete the  ${selectedWarehouse.warehouse_name} from the list of warehouses. You won’t be able to undo this action.`}
           onDeleteConfirm={confirmDeleteWarehouse}
         />
       )}
