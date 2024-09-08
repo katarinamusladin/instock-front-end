@@ -80,6 +80,10 @@
 
     &__tag {
         @include instock;
+
+        &--out {
+            @include outofstock;
+        }
     }
 
     &__location {

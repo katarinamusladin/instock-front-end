@@ -4,8 +4,10 @@ import editIcon from "../../assets/images/icons/edit-white-24px.svg";
 import PageHeader from "../PageHeader/PageHeader";
 
 export default function InventoryDetails({ details, inventoryId }) {
-	const { warehouse_name, item_name, description, category, quantity } =
+	const { warehouse_name, item_name, description, category, status, quantity } =
 		details;
+	// const statusClass =
+	// 	status === "In Stock" ? "status-in-stock" : "status-out-of-stock";
 	return (
 		<section className="item-details">
 			<div className="item-details__header">
@@ -34,7 +36,14 @@ export default function InventoryDetails({ details, inventoryId }) {
 					<div className="item-details__stock">
 						<div>
 							<h3 className="item-details__content-header">STATUS:</h3>
-							<p className="item-details__tag">IN STOCK</p>
+							{status === "In Stock" ? (
+								<p className="item-details__tag"> IN STOCK </p>
+							) : (
+								<p className="item-details__tag item-details__tag--out">
+									{" "}
+									OUT OF STOCK{" "}
+								</p>
+							)}
 						</div>
 						<div>
 							<h3 className="item-details__content-header">QUANTITY:</h3>
