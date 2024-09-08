@@ -17,7 +17,7 @@ export default function AddInventoryAvailability({setQuantity, status, setStatus
 
   useEffect(() => {
     if (status === "OutStock") {
-      setQuantity(0); // Automatically set to zero
+      setQuantity(0);
     }
   }, [status, setQuantity]);
 

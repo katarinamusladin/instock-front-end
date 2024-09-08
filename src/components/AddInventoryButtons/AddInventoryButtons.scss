@@ -14,6 +14,7 @@
         width: 100%;
         display: flex;
         justify-content: flex-end;
+        padding-top:2rem;
 
     }
 
@@ -22,6 +23,7 @@
         padding: .5rem;
         padding-right: 3rem;
         padding-left: 3rem;
+        margin-right: 1rem;
 
         &:active{
             color: $primary-indigo;
@@ -32,11 +34,15 @@
             color: $primary-indigo;
             border-color: $primary-indigo;
         }
+
+        @include tablet {
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
     }
     
     &__add{
         @include blue-btn-white-text;
-        padding: .5rem;
         padding-right: 3rem;
         padding-left: 3rem;
 
@@ -49,8 +55,10 @@
         }
 
         @include tablet {
-            margin-left: 1rem;
+            margin-left: .5rem;
             margin-right: 1rem;
+            padding-right: 1rem;
+            padding-left: 1rem;
         }
     }
     

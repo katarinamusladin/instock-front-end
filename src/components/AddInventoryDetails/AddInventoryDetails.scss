@@ -45,6 +45,8 @@ input.error {
     &__details {
         @include page-content;
         margin: $mobile-margin;
+
+        
     }
 
     &__itemDetails {
@@ -54,6 +56,7 @@ input.error {
 
         &--header{
             padding-bottom: 1rem;
+            
         }
 
     }
@@ -99,9 +102,9 @@ input.error {
     &__category{
         padding: 8px;
         border-radius: $border-radius;
-        border-color: $secondary-slate;
+        border-color: $secondary-cloud;
         margin-bottom: 1rem;
-        color: $secondary-slate;
+        color: $secondary-cloud;
         padding-left: 16px;
         &:active{
             border-color: $primary-indigo;

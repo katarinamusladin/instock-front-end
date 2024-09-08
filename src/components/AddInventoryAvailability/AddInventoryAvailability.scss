@@ -26,11 +26,10 @@ input.error {
   border-color: $label-red;
 }
 .availability {
+    display:flex;
+    flex-direction: column;
 
-    @include tablet {
-        width: 50%;
-    }
-    // width: 100%;
+
     &__quantity{
         padding: 8px;
         border-radius: $border-radius;
@@ -44,9 +43,9 @@ input.error {
     &__warehouse{
         padding: 8px;
         border-radius: $border-radius;
-        border-color: $secondary-slate;
+        border-color: $secondary-cloud;
         margin-bottom: 1rem;
-        color: $secondary-slate;
+        color: $secondary-cloud;
         padding-left: 16px;
         &:active{
             border-color: $primary-indigo;
@@ -58,16 +57,9 @@ input.error {
         display: flex;
         width: 100%;
         font-family: 'Titillium Web';
-        color: $secondary-slate;
+        color: $secondary-cloud;
         padding-bottom: 1rem;
 
-        &:checked{
-            color: $primary-black;
-        }
-
-        &::before{
-            color:$secondary-slate;
-        }
         &:active{
             border-color: $primary-indigo;
         }
@@ -81,7 +73,8 @@ input.error {
             padding-right: 8rem;
 
 
-            &:checked{
+
+            &:active{
                 color: $primary-black;
             }
 
@@ -102,12 +95,8 @@ input.error {
             justify-content: flex-end;
             padding-left: .5rem;
 
-            &:checked{
+            &:active{
                 color: $primary-black;
-            }
-
-            &::before{
-                color:$secondary-slate;
             }
 
             &:active{

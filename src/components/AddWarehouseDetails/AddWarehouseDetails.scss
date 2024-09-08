@@ -3,6 +3,12 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
+input {
+    border-color: $secondary-cloud;
+    border-style: .0625rem solid $secondary-cloud;
+    
+}
+
 .error-message{
         border-color: $label-red;
         color: $label-red;
