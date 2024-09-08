@@ -44,17 +44,19 @@ p {
 
   &__item {
     padding: 1rem 0;
-    border-bottom: 0.0938rem solid $secondary-slate;
+    border-top: 0.0938rem solid $secondary-cloud;
+
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
+      border-top:none;
+      border-bottom: 0.0938rem solid $secondary-cloud;
       &:hover {
         background-color: rgba($primary-indigo, 0.1);
       }
+      
+      
     }
-
-    &:last-of-type {
-      border-bottom: none;
-    }
+   
   }
 
   &__text-box {

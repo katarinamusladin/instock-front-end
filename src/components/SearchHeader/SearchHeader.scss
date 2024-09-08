@@ -6,9 +6,10 @@
 .warehouses__header {
   display: flex;
   flex-wrap: wrap;
-  padding: 0.9375rem 5%;
+  padding: 0.9375rem 0rem;
   margin: 2rem;
   font-family: "Titillium Web";
+  margin-bottom: 0rem;
 
   @include tablet {
     align-items: center;
