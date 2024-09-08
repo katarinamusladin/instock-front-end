@@ -15,6 +15,7 @@ p {
   background-color: $primary-white;
   margin: 1rem;
   border: 1px solid rgba($background-page, 0.3);
+  box-shadow: 0px 2px 4px rgba($primary-black, 0.1);
   border-top: none;
   // @include tablet {
   //   margin-left: 2rem;
