@@ -124,34 +124,39 @@ export default function EditInventoryPage() {
             text={"Edit Inventory Item"}
             altText="back key icon"
           />
-          <form className="wrapper" onSubmit={handleEditSubmit}>
-            <div className="wrapper__left">
-              <EditInventoryDetails
-                setCategory={setCategory}
-                setItemName={setItemName}
-                setDescription={setDescription}
-                categories={categories}
-                errors={errors}
-                itemDetails={itemDetails}
-              />
+          <form onSubmit={handleEditSubmit}>
+            <div className="wrapper">
+              <div className="wrapper__left">
+                <EditInventoryDetails
+                  setCategory={setCategory}
+                  setItemName={setItemName}
+                  setDescription={setDescription}
+                  categories={categories}
+                  errors={errors}
+                  itemDetails={itemDetails}
+                />
+              </div>
+              <div className="wrapper__right">
+                <EditInventoryAvailability
+                  setQuantity={setQuantity}
+                  warehouses={warehouses}
+                  status={status}
+                  quantity={quantity}
+                  setWarehouse={setWarehouse}
+                  setStatus={setStatus}
+                  handleQuantityChange={handleQuantityChange}
+                  errors={errors}
+                  itemDetails={itemDetails}
+                />
+              </div>
             </div>
-            <div className="wrapper__right">
-              <EditInventoryAvailability
-                setQuantity={setQuantity}
-                warehouses={warehouses}
-                status={status}
-                quantity={quantity}
-                setWarehouse={setWarehouse}
-                setStatus={setStatus}
-                handleQuantityChange={handleQuantityChange}
-                errors={errors}
-                itemDetails={itemDetails}
+            <div className="click">
+              <AddInventoryButtons
+                onClick={handleEditSubmit}
+                btnText={"Save"}
               />
             </div>
           </form>
-          <div className="click">
-            <AddInventoryButtons onClick={handleEditSubmit} btnText={"Save"} />
-          </div>
         </section>
       </article>
     </>
