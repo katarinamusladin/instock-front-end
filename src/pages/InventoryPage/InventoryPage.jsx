@@ -105,16 +105,16 @@ function InventoryPage() {
 							<div className="warehouses__column">
 								<div className="warehouses__content warehouses__content--long">
 									<h3 className="warehouses__mobile-header">Inventory Item</h3>
-									<div className="warehouses__name-wrapper">
-										<NavLink to={`/inventories/${item.id}`}>
+									<NavLink to={`/inventories/${item.id}`}>
+										<div className="warehouses__name-wrapper">
 											<p className="warehouses__name">{item.item_name}</p>
 											<img
 												src={arrowRight}
 												alt="Arrow Right"
 												className="warehouses__name--icon"
 											/>
-										</NavLink>
-									</div>
+										</div>
+									</NavLink>
 								</div>
 								<div className="warehouses__content warehouses__content--long">
 									<h3 className="warehouses__mobile-header">Category</h3>
