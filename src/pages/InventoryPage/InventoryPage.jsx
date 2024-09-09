@@ -12,6 +12,7 @@ import "./InventoryPage.scss";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 function InventoryPage() {
+
   document.title = "Inventory";
   const inventoryId = useParams();
   const navigate = useNavigate();
@@ -166,6 +167,7 @@ function InventoryPage() {
       )}
     </div>
   );
+
 }
 
 export default InventoryPage;
