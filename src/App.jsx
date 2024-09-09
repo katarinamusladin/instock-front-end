@@ -11,7 +11,6 @@ import AddInventoryPage from "./pages/AddInventoryPage/AddInventoryPage.jsx";
 import EditWarehousePage from "./pages/EditWarehousePage/EditWarehousePage.jsx";
 import EditInventoryPage from "./pages/EditInventoryPage/EditInventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
-import WarehouseList from "./components/WarehouseList/WarehouseList.jsx";
 
 function App() {
 	return (
@@ -21,43 +20,26 @@ function App() {
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/home" element={<Navigate to="/" />} />
-					{/* <Route path="/warehouses" element={<Navigate to="/" />} /> */}
-					<Route path="/warehouses" element={<WarehouseList />} />
+					<Route path="/warehouses" element={<Navigate to="/" />} />
+					<Route path="/inventories" element={<InventoryPage />} />
 					<Route
 						path="/warehouses/:warehouseId"
 						element={<WarehouseDetailsPage />}
+					/>
+					<Route
+						path="/inventories/:inventoryId"
+						element={<InventoryDetailsPage />}
 					/>
 					<Route
 						path="/warehouses/:warehouseId/edit"
 						element={<EditWarehousePage />}
 					/>
 					<Route
-						path="/inventories/:inventoryId"
-						element={<InventoryDetailsPage />}
-					/>
-
-					{/* need to figure out what route to use */}
-					<Route path="/inventories/add" element={<AddInventoryPage />} />
-
-					<Route
-						path="/warehouses/add"
-						element={<AddWarehousePage />} />
-			
-
-					<Route path="/inventory" element={<InventoryPage />} />
-					<Route
 						path="/inventories/:inventoryId/edit"
 						element={<EditInventoryPage />}
 					/>
-					{/*<Route
-						path="/warehouses/:warehouseId/add"
-						element={<WarehouseAddPage />}
-					/>
-					
-					<Route
-						path="/inventory/:inventoryId/add"
-						element={<InventorAddPage />}
-					/> */}
+					<Route path="/warehouses/add" element={<AddWarehousePage />} />
+					<Route path="/inventories/add" element={<AddInventoryPage />} />
 					<Route path="/notfound" element={<NotFoundPage />} />
 					<Route path="*" element={<Navigate to="/notfound" />} />
 				</Routes>

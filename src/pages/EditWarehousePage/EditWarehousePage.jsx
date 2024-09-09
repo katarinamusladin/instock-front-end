@@ -1,7 +1,7 @@
 import "./EditWarehousePage.scss";
 import backIcon from "../../assets/images/icons/arrow_back-24px.svg";
 import PageHeader from "../../components/PageHeader/PageHeader";
-// import EditWarehouseDetails from "../../components/EditWarehouseDetails/EditWarehouseDetails";
+import EditWarehouseDetails from "../../components/EditWarehouseDetails/EditWarehouseDetails";
 import Button from "../../components/Button/Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -112,24 +112,17 @@ export default function EditWarehousePage() {
 		return isValid;
 	};
 
-	// const cancelHandle = () => {
-	// 	navigate(`/warehouses/${warehouseId}`, { replace: true });
-	// };
-
 	//form submission and updating server/ backend db
 	const editWarehouseHandle = async (event) => {
 		event.preventDefault();
-
 		if (!validateForm()) {
 			console.log("Form validation failed.");
 			return;
 		}
-
 		const pckg = {
 			...debouncedEditTopDetails,
 			...debouncedEditBotDetails,
 		};
-
 		try {
 			const response = await axios.put(
 				`${BASE_URL}:${PORT}/api/warehouses/${warehouseId}`,
