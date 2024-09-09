@@ -45,6 +45,7 @@
         @include blue-btn-white-text;
         padding-right: 3rem;
         padding-left: 3rem;
+        text-wrap: nowrap;
 
         &:active{
             background-color: $background-header;

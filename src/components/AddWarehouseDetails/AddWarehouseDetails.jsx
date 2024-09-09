@@ -19,7 +19,7 @@ export default function AddWarehouseDetails( { setWarehouseName, setStreetAddres
       <section
         className="inventory-add__itemDetails"
       >
-        <h2 className="inventory-add__itemDetails--header">Item Details</h2>
+        <h2 className="inventory-add__itemDetails--header">Warehouse Details</h2>
         <section className="details">
           <h3> Warehouse Name </h3>
           <input

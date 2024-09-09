@@ -53,6 +53,7 @@ export default function AddWarehousePage() {
       return console.log("Missing input data");
     }
 
+
     const warehouse_name = warehouseName;
     const address = streetAddress;
     const contact_name = contactName;
