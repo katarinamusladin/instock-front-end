@@ -93,7 +93,7 @@ function WarehouseInventoryList({ warehouseId }) {
                 </div>
                 <div className="warehouses__content warehouses__content--long">
                   <h3 className="warehouses__mobile-header">Category</h3>
-                  <p>{item.category}</p>
+                  <p className="warehouses__informations">{item.category}</p>
                 </div>
               </div>
               <div className="warehouses__column">
@@ -103,7 +103,7 @@ function WarehouseInventoryList({ warehouseId }) {
                 </div>
                 <div className="warehouses__content warehouses__content--long">
                   <h3 className="warehouses__mobile-header">QTY</h3>
-                  <p>{item.quantity}</p>
+                  <p className="warehouses__informations">{item.quantity}</p>
                 </div>
               </div>
             </div>

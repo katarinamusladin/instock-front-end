@@ -117,7 +117,7 @@ function InventoryPage() {
 								</div>
 								<div className="warehouses__content warehouses__content--long">
 									<h3 className="warehouses__mobile-header">Category</h3>
-									<p>{item.category}</p>
+									<p className="warehouses__informations">{item.category}</p>
 								</div>
 							</div>
 							<div className="warehouses__column">
@@ -127,11 +127,11 @@ function InventoryPage() {
 								</div>
 								<div className="warehouses__content warehouses__content--short">
 									<h3 className="warehouses__mobile-header">QTY</h3>
-									<p>{item.quantity}</p>
+									<p className="warehouses__informations">{item.quantity}</p>
 								</div>
 								<div className="warehouses__content warehouses__content--short">
 									<h3 className="warehouses__mobile-header">Warehouse</h3>
-									<p>{warehouses[item.warehouse_id]}</p>
+									<p className="warehouses__informations">{warehouses[item.warehouse_id]}</p>
 								</div>
 							</div>
 						</div>

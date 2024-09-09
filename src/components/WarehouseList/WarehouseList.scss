@@ -36,6 +36,11 @@
     color: $primary-indigo;
     font-weight: 600;
     font-size: 0.8rem;
+    padding-left: 1rem;
+  }
+
+  &__informations {
+    padding-left:1rem;
   }
 
   &__name--icon {
@@ -44,25 +49,20 @@
   }
 
   &__item {
-   
     padding: 1rem 0;
     border-top: 0.0938rem solid $secondary-cloud;
-    
 
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
-      border-top:none;
+      border-top: none;
       border-bottom: 0.0938rem solid $secondary-cloud;
-      &:last-child{
+      &:last-child {
         border-bottom: none;
       }
       &:hover {
         background-color: rgba($primary-indigo, 0.1);
       }
-      
-      
     }
-   
   }
 
   &__text-box {
@@ -138,7 +138,6 @@
   &__content {
     width: auto;
     box-sizing: border-box;
-  
 
     &--short {
       @include tablet {
@@ -157,7 +156,6 @@
     @include tablet {
       width: 10%;
       justify-content: space-around;
-      
     }
   }
 
@@ -183,10 +181,10 @@
       border: none;
       cursor: pointer;
       padding-left: 1rem;
-      padding-right:1rem;
+      padding-right: 1rem;
       @include tablet {
         padding-left: 0rem;
-        padding-right:0rem;
+        padding-right: 0rem;
       }
     }
   }
