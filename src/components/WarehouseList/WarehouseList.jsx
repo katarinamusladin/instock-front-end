@@ -103,25 +103,25 @@ function WarehouseList() {
 							</div>
 							<div className="warehouses__content warehouses__content--long">
 								<h3 className="warehouses__mobile-header">Address</h3>
-								<p>{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
+								<p className="warehouses__informations">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</p>
 							</div>
 						</div>
 						<div className="warehouses__column">
 							<div className="warehouses__content warehouses__content--long">
 								<h3 className="warehouses__mobile-header">Contact Name</h3>
-								<p>{warehouse.contact_name}</p>
+								<p className="warehouses__informations">{warehouse.contact_name}</p>
 							</div>
 							<div className="warehouses__content warehouses__content--long">
 								<h3 className="warehouses__mobile-header">
 									Contact Information
 								</h3>
-								<p>{warehouse.contact_phone}</p>
-								<p>{warehouse.contact_email}</p>
+								<p className="warehouses__informations">{warehouse.contact_phone}</p>
+								<p className="warehouses__informations">{warehouse.contact_email}</p>
 							</div>
 						</div>
 					</div>
 					<div className="warehouses__action">
-						<h3 className="warehouses__mobile-header active">ACTIONS</h3>
+						<h3 className="warehouses__mobile-header active1">ACTIONS</h3>
 						<button
 							className="warehouses__icon-button"
 							onClick={() => handleDelete(warehouse)}

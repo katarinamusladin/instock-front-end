@@ -12,158 +12,162 @@ import "./InventoryPage.scss";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 function InventoryPage() {
-	document.title = "Inventory";
-	const inventoryId = useParams();
-	const navigate = useNavigate();
-	const [inventoryItems, setInventoryItems] = useState([]);
-	const [warehouses, setWarehouses] = useState({});
-	const [loading, setLoading] = useState(true);
-	const [modalVisible, setModalVisible] = useState(false);
-	const [selectedItem, setSelectedItem] = useState(null);
 
-	const columnsData = [
-		["Inventory Item", "Category"],
-		["Status", "Quantity", "Warehouse"],
-	];
+  document.title = "Inventory";
+  const inventoryId = useParams();
+  const navigate = useNavigate();
+  const [inventoryItems, setInventoryItems] = useState([]);
+  const [warehouses, setWarehouses] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
 
-	useEffect(() => {
-		const fetchInventoryItems = async () => {
-			try {
-				const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
-					import.meta.env.VITE_PORT
-				}`;
-				const responseInv = await axios.get(`${baseUrl}/api/inventories`);
-				const responseWar = await axios.get(`${baseUrl}/api/warehouses`);
+  const columnsData = [
+    ["Inventory Item", "Category"],
+    ["Status", "Quantity", "Warehouse"],
+  ];
 
-				const warehouseMap = responseWar.data.reduce((acc, warehouse) => {
-					acc[warehouse.id] = warehouse.warehouse_name;
-					return acc;
-				}, {});
+  useEffect(() => {
+    const fetchInventoryItems = async () => {
+      try {
+        const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
+          import.meta.env.VITE_PORT
+        }`;
+        const responseInv = await axios.get(`${baseUrl}/api/inventories`);
+        const responseWar = await axios.get(`${baseUrl}/api/warehouses`);
 
-				setInventoryItems(responseInv.data);
-				setWarehouses(warehouseMap);
-				setLoading(false);
-			} catch (error) {
-				console.error("Error fetching inventory data:", error);
-				setLoading(false);
-			}
-		};
+        const warehouseMap = responseWar.data.reduce((acc, warehouse) => {
+          acc[warehouse.id] = warehouse.warehouse_name;
+          return acc;
+        }, {});
 
-		fetchInventoryItems();
-	}, []);
+        setInventoryItems(responseInv.data);
+        setWarehouses(warehouseMap);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching inventory data:", error);
+        setLoading(false);
+      }
+    };
 
-	const handleDeleteClick = (item) => {
-		setSelectedItem(item);
-		setModalVisible(true);
-	};
+    fetchInventoryItems();
+  }, []);
 
-	const handleDeleteConfirm = async () => {
-		try {
-			const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
-				import.meta.env.VITE_PORT
-			}`;
-			await axios.delete(`${baseUrl}/api/inventories/${selectedItem.id}`);
+  const handleDeleteClick = (item) => {
+    setSelectedItem(item);
+    setModalVisible(true);
+  };
 
-			setInventoryItems((prevItems) =>
-				prevItems.filter((item) => item.id !== selectedItem.id)
-			);
+  const handleDeleteConfirm = async () => {
+    try {
+      const baseUrl = `${import.meta.env.VITE_BASE_URL}:${
+        import.meta.env.VITE_PORT
+      }`;
+      await axios.delete(`${baseUrl}/api/inventories/${selectedItem.id}`);
 
-			setModalVisible(false);
-			setSelectedItem(null);
-		} catch (error) {
-			console.error("Error deleting inventory item:", error);
-		}
-	};
+      setInventoryItems((prevItems) =>
+        prevItems.filter((item) => item.id !== selectedItem.id)
+      );
 
-	const handleCloseModal = () => {
-		setModalVisible(false);
-		setSelectedItem(null);
-	};
+      setModalVisible(false);
+      setSelectedItem(null);
+    } catch (error) {
+      console.error("Error deleting inventory item:", error);
+    }
+  };
 
-	if (loading) {
-		return <div>Loading...</div>;
-	}
+  const handleCloseModal = () => {
+    setModalVisible(false);
+    setSelectedItem(null);
+  };
 
-	return (
-		<div className="warehouses">
-			<SearchHeader title="Inventory" type="Item" addPath="/inventories/add" />
-			<WarehouseHeaderList
-				columns={columnsData}
-				actionText="Actions"
-				iconSrc={Arrows}
-			/>
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-			{inventoryItems.map((item) => {
-				const statusClass =
-					item.status === "In Stock"
-						? "status-in-stock"
-						: "status-out-of-stock";
+  return (
+    <div className="warehouses">
+      <SearchHeader title="Inventory" type="Item" addPath="/inventories/add" />
+      <WarehouseHeaderList
+        columns={columnsData}
+        actionText="Actions"
+        iconSrc={Arrows}
+      />
 
-				return (
-					<div key={item.id} className="warehouses__item">
-						<div className="warehouses__text-box">
-							<div className="warehouses__column">
-								<div className="warehouses__content warehouses__content--long">
-									<h3 className="warehouses__mobile-header">Inventory Item</h3>
-									<NavLink to={`/inventories/${item.id}`}>
-										<div className="warehouses__name-wrapper">
-											<p className="warehouses__name">{item.item_name}</p>
-											<img
-												src={arrowRight}
-												alt="Arrow Right"
-												className="warehouses__name--icon"
-											/>
-										</div>
-									</NavLink>
-								</div>
-								<div className="warehouses__content warehouses__content--long">
-									<h3 className="warehouses__mobile-header">Category</h3>
-									<p>{item.category}</p>
-								</div>
-							</div>
-							<div className="warehouses__column">
-								<div className="warehouses__content warehouses__content--short">
-									<h3 className="warehouses__mobile-header">Status</h3>
-									<p className={statusClass}>{item.status}</p>
-								</div>
-								<div className="warehouses__content warehouses__content--short">
-									<h3 className="warehouses__mobile-header">QTY</h3>
-									<p>{item.quantity}</p>
-								</div>
-								<div className="warehouses__content warehouses__content--short">
-									<h3 className="warehouses__mobile-header">Warehouse</h3>
-									<p>{warehouses[item.warehouse_id]}</p>
-								</div>
-							</div>
-						</div>
-						<div className="warehouses__action">
-							<h3 className="warehouses__mobile-header active">ACTIONS</h3>
-							<button
-								className="warehouses__icon-button"
-								onClick={() => handleDeleteClick(item)}
-							>
-								<img src={deleteIcon} alt="Delete icon" />
-							</button>
-							<NavLink to={`/inventories/${item.id}/edit`}>
-								<button className="warehouses__icon-button">
-									<img src={editIcon} alt="Edit icon" />
-								</button>
-							</NavLink>
-						</div>
-					</div>
-				);
-			})}
+      {inventoryItems.map((item) => {
+        const statusClass =
+          item.status === "In Stock"
+            ? "status-in-stock"
+            : "status-out-of-stock";
 
-			{modalVisible && (
-				<DeleteModal
-					onClose={handleCloseModal}
-					title={`Delete ${selectedItem.item_name} inventory item?`}
-					message={`Please confirm that you’d like to delete ${selectedItem.item_name} from the inventory list. You won’t be able to undo this action.`}
-					onConfirm={handleDeleteConfirm}
-				/>
-			)}
-		</div>
-	);
+        return (
+          <div key={item.id} className="warehouses__item">
+            <div className="warehouses__text-box">
+              <div className="warehouses__column">
+                <div className="warehouses__content warehouses__content--long">
+                  <h3 className="warehouses__mobile-header">Inventory Item</h3>
+                  <NavLink to={`/inventories/${item.id}`}>
+                    <div className="warehouses__name-wrapper">
+                      <p className="warehouses__name">{item.item_name}</p>
+                      <img
+                        src={arrowRight}
+                        alt="Arrow Right"
+                        className="warehouses__name--icon"
+                      />
+                    </div>
+                  </NavLink>
+                </div>
+                <div className="warehouses__content warehouses__content--long">
+                  <h3 className="warehouses__mobile-header">Category</h3>
+                  <p className="warehouses__informations">{item.category}</p>
+                </div>
+              </div>
+              <div className="warehouses__column">
+                <div className="warehouses__content warehouses__content--short">
+                  <h3 className="warehouses__mobile-header">Status</h3>
+                  <p className={statusClass}>{item.status}</p>
+                </div>
+                <div className="warehouses__content warehouses__content--short">
+                  <h3 className="warehouses__mobile-header">QTY</h3>
+                  <p className="warehouses__informations">{item.quantity}</p>
+                </div>
+                <div className="warehouses__content warehouses__content--short">
+                  <h3 className="warehouses__mobile-header">Warehouse</h3>
+                  <p className="warehouses__informations">
+                    {warehouses[item.warehouse_id]}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="warehouses__action">
+              <h3 className="warehouses__mobile-header active1">ACTIONS</h3>
+              <button
+                className="warehouses__icon-button"
+                onClick={() => handleDeleteClick(item)}
+              >
+                <img src={deleteIcon} alt="Delete icon" />
+              </button>
+              <NavLink to={`/inventories/${item.id}/edit`}>
+                <button className="warehouses__icon-button">
+                  <img src={editIcon} alt="Edit icon" />
+                </button>
+              </NavLink>
+            </div>
+          </div>
+        );
+      })}
+
+      {modalVisible && (
+        <DeleteModal
+          onClose={handleCloseModal}
+          title={`Delete ${selectedItem.item_name} inventory item?`}
+          message={`Please confirm that you’d like to delete ${selectedItem.item_name} from the inventory list. You won’t be able to undo this action.`}
+          onConfirm={handleDeleteConfirm}
+        />
+      )}
+    </div>
+  );
+
 }
 
 export default InventoryPage;

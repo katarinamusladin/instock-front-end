@@ -1,16 +1,16 @@
 ## TODO:
 
-[x] edit inventory items page --> header missing nav btn...
-[x] when we click on warehouses in the nav bar --> it leads to warehouses list, but this list has NO instock logo???
-[x] when we click on inventory in the nav bar --> it leads to not found page!
+[✅ ] edit inventory items page --> header missing nav btn...
+[ ✅] when we click on warehouses in the nav bar --> it leads to warehouses list, but this list has NO instock logo???
+[ ✅] when we click on inventory in the nav bar --> it leads to not found page!
 
 ## TODO: Design changes
 
-[ ] header hav links
-[ ] font colors/ text decoration for hover/active states...
+[✅ ] header hav links
+[✅ ] font colors/ text decoration for hover/active states...
 [ ] PADDING/MARGIN
 [ ] hover: underlined text and blue
-[ ] header: active state is underlined
+[ ✅] header: active state is underlined
 [ ] cursor pointer for buttons
 [ ] focus for the add inventory page --> blue border
 [ ] status focus black for active
@@ -43,7 +43,7 @@
 
 [ ] add new warehouse - Item details vs warehouse details - middle divider (should not touch top)
 
-[ ] delete modal - sizing --> buttons outside container?
+[✅ ] delete modal - sizing --> buttons outside container?
 
 [ ] edit inventory item - buttons and flex layout! - background color
 
@@ -55,7 +55,7 @@
 [ ] margins on the side
 [x] edit buttons need to be linked
 
-[ ] delete modal - sizing --> height
+[ ✅] delete modal - sizing --> height
 
 [ ] warehouse details - size of instock/out of stock tags
 
@@ -65,6 +65,6 @@
 
 [ ] edit inventory -- if time, then make it so that we dont have to re enter everything in
 
-[ ] delete modal --> delete functionality
+[✅ ] delete modal --> delete functionality
 
 [ ] add warehouse/inventory --> error validation for input fields
