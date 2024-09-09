@@ -32,7 +32,7 @@ input.error {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: $background-page;
+        background-color: $primary-white;
 
         @include tablet {
             padding: 0 $tablet-margin;
@@ -48,6 +48,7 @@ input.error {
         @include divider-top-thick;
         padding: $mobile-margin;
         width: 100%;
+        background-color: $primary-white;
 
         &--header {
             padding-bottom: $mobile-margin;
@@ -58,6 +59,7 @@ input.error {
         @include divider-top-thick;
         width: 100%;
         padding: $mobile-margin;
+        background-color: $primary-white;
         flex-shrink: 0;
 
         &--header {

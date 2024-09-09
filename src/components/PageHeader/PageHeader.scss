@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: space-between;
     padding: $mobile-margin;
+    background-color: $primary-white;
 
     @include tablet {
         padding-left: $tablet-margin;
@@ -33,4 +34,8 @@
         text-decoration: none;
     }
 
+    &__header {
+        width: 100%;
+        display: flex;
+    }
 }
