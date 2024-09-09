@@ -66,11 +66,11 @@
         background-color: $background-page;
 
         @include tablet {
-            padding: 0 $tablet-margin;
+            // padding: 0 $tablet-margin;
         }
 
         @include desktop {
-            padding: 0 $desktop-margin;
+            // padding: 0 $desktop-margin;
         }
     }
 

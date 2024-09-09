@@ -50,7 +50,7 @@
     width: 100%;
 
     @include tablet {
-      width: 28%;
+      width: 34%;
     }
 
     @include desktop {
@@ -117,8 +117,7 @@
     background-color: $primary-black;
     color: $primary-white;
     border-radius: 1.25rem;
-    padding: 0.3rem 2rem;
-
+    padding: 0.3rem 1rem;
   }
 
   &__inventory--active {
@@ -126,7 +125,7 @@
     background-color: $primary-black;
     color: $primary-white;
     border-radius: 1.25rem;
-    padding: 0.6rem;
+    padding: 0.4rem 1rem;
   }
 }
 
