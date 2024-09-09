@@ -159,7 +159,7 @@ export default function EditWarehousePage() {
 				<PageHeader
 					path1={`/warehouses/${warehouseId}`}
 					icon={backIcon}
-					text="Edit Warehouse"
+					text={"Edit Warehouse"}
 					altText="back key icon"
 				/>
 				<div className="edit-warehouse__form-container">

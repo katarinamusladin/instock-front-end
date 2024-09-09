@@ -1,8 +1,8 @@
 ## TODO:
 
-[ ] edit inventory items page --> header missing nav btn...
-[ ] when we click on warehouses in the nav bar --> it leads to warehouses list, but this list has NO instock logo???
-[ ] when we click on inventory in the nav bar --> it leads to not found page!
+[x] edit inventory items page --> header missing nav btn...
+[x] when we click on warehouses in the nav bar --> it leads to warehouses list, but this list has NO instock logo???
+[x] when we click on inventory in the nav bar --> it leads to not found page!
 
 ## TODO: Design changes
 
@@ -21,13 +21,15 @@
 
 [ ] warehouses details: - padding/ alignment - tags - contact information not contact info
 
-[ ] edit warehouse: - padding - back key icon - alignment of page!
+[ ] edit warehouse:
+[ ] padding
+[ ] back key icon - alignment of page!
 
 [ ] add warehouse: - Warehouse Details - text for add warehouse
 
 [ ] inventory page: - instock/out of stock tags (wrapping) - edit icon - nav bar links
 
-[ ] inventory list: warehouses must link to warehouse details page
+[x] inventory list: warehouses must link to warehouse details page
 
 [ ] edit inventory item: - back button - page background - not supposed to be gray --> white! - TEXT WRAP FOR PLACEHOLDER! - bottom padding!
 
@@ -49,7 +51,9 @@
 
 # desktop version
 
-[ ] warehouses page - margins on the side - edit buttons need to be linked
+[x] warehouses page:
+[ ] margins on the side
+[x] edit buttons need to be linked
 
 [ ] delete modal - sizing --> height
 
