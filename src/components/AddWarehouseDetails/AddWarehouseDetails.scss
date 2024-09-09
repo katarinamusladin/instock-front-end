@@ -6,13 +6,13 @@
 input {
     border-color: $secondary-cloud;
     border-style: .0625rem solid $secondary-cloud;
-    
+
 }
 
-.error-message{
-        border-color: $label-red;
-        color: $label-red;
-    }
+.error-message {
+    border-color: $label-red;
+    color: $label-red;
+}
 
 input.error {
     border-color: $label-red;
@@ -21,7 +21,7 @@ input.error {
 .details__name.error,
 .details__description.error,
 .details__category.error {
-  border-color: $label-red;
+    border-color: $label-red;
 }
 
 .inventory-add {
@@ -30,7 +30,6 @@ input.error {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-
         background-color: $background-page;
 
         @include tablet {
@@ -44,56 +43,65 @@ input.error {
     }
 
     &__itemDetails {
-        padding: $mobile-margin;
         @include divider-top-thick;
-        width:100%;
+        width: 100%;
+        padding: $mobile-margin;
 
-        &--header{
-            padding-bottom: 1rem;
+        &--header {
+            padding-bottom: $mobile-margin;
         }
-
     }
-
 }
 
 .details {
-    &__warehouse{
-        padding: 8px;
+    &__warehouse {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
+
+        &:active,
+        &:focus {
             border-color: $primary-indigo;
         }
     }
-    &__street{
-        padding: 8px;
+
+    &__street {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
+
+        &:active,
+        &:focus {
             border-color: $primary-indigo;
         }
     }
-    &__city{
-        padding: 8px;
+
+    &__city {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
+
+        &:active,
+        &:focus {
             border-color: $primary-indigo;
         }
     }
-    &__country{
-        padding: 8px;
+
+    &__country {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
+
+        &:active,
+        &:focus {
             border-color: $primary-indigo;
         }
     }

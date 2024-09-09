@@ -3,73 +3,78 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-
-
 input.error {
     border-color: $label-red;
 }
-.err {
 
+.err {
     &__icon {
-        height: 16px;
-        width: 16px;
+        height: 1rem;
+        width: 1rem;
     }
 
-    &__error-message{
+    &__error-message {
         border-color: $label-red;
         color: $label-red;
         font-family: "Titillium Web";
     }
-
-
 }
 
 .details__contact.error,
 .details__position.error,
 .details__number.error {
-  border-color: $label-red;
+    border-color: $label-red;
 }
 
-
 .details {
-    &__contact{
-        padding: 8px;
+    &__contact {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
+
+        &:active,
+        &:focus {
             border-color: $primary-indigo;
         }
     }
 
-    &__position{
-        padding: 8px;
+    &__position {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
         margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        padding-left: 1rem;
+
+        &:active,
+        &:focus {
             border-color: $primary-indigo;
         }
     }
-    &__number{
-        padding: 8px;
+
+    &__number {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
         margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        padding-left: 1rem;
+
+        &:active,
+        &:focus {
             border-color: $primary-indigo;
         }
     }
-    &__email{
-        padding: 8px;
+
+    &__email {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
+
+        &:active,
+        &:focus {
             border-color: $primary-indigo;
         }
     }

@@ -3,12 +3,6 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-// p {
-//   font-family: "Titillium Web";
-//   padding-left: 1rem;
-//   font-size: 0.8rem;
-// }
-
 .warehouses {
   position: relative;
   top: -3rem;
@@ -17,15 +11,6 @@
   border: 1px solid rgba($background-page, 0.3);
   box-shadow: 0px 2px 4px rgba($primary-black, 0.1);
   border-top: none;
-  // @include tablet {
-  //   margin-left: 2rem;
-  //   margin-right: 2rem;
-  // }
-
-  // @include desktop {
-  //   margin-left: 5rem;
-  //   margin-right: 5rem;
-  // }
 
   &__name-wrapper {
     display: flex;
@@ -49,8 +34,10 @@
   }
 
   &__item {
+   
     padding: 1rem 0;
     border-top: 0.0938rem solid $secondary-cloud;
+
 
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
@@ -59,14 +46,19 @@
       &:last-child {
         border-bottom: none;
       }
+
       &:hover {
         background-color: rgba($primary-indigo, 0.1);
       }
+      
+      
     }
+   
   }
 
   &__text-box {
     @include flex-it(nowrap, flex-start, normal, row);
+
     @include tablet {
       width: 90%;
     }
@@ -100,6 +92,7 @@
 
     &--icon {
       display: none;
+
       @include tablet {
         margin-left: 0.5rem;
         width: 1rem;
@@ -126,6 +119,7 @@
 
     &--icon {
       display: none;
+
       @include tablet {
         margin-left: 0.5rem;
         width: 1rem;
@@ -135,15 +129,18 @@
       }
     }
   }
+
   &__content {
     width: auto;
     box-sizing: border-box;
+  
 
     &--short {
       @include tablet {
         width: 42%;
       }
     }
+
     &--long {
       @include tablet {
         width: 58%;
@@ -153,9 +150,11 @@
 
   &__action {
     @include flex-it(nowrap, space-between, normal, row);
+
     @include tablet {
       width: 10%;
       justify-content: space-around;
+      
     }
   }
 
@@ -168,6 +167,7 @@
       padding-left: 0rem;
       margin: 0rem 0.6rem 0 0;
     }
+
     @include desktop {
       margin: 1rem 2rem 0 0;
     }
@@ -181,7 +181,7 @@
       border: none;
       cursor: pointer;
       padding-left: 1rem;
-      padding-right: 1rem;
+      padding-right:1rem;
       @include tablet {
         padding-left: 0rem;
         padding-right: 0rem;
@@ -198,6 +198,7 @@
 
   &__item1 {
     border-bottom: 0.0938rem solid $secondary-slate;
+
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
     }
@@ -220,10 +221,12 @@
 
 .header__appear {
   display: none;
+
   @include tablet {
     display: block;
   }
 }
+
 .warehouses__link {
   text-decoration: none;
   color: inherit;

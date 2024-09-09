@@ -9,12 +9,12 @@ import arrowRight from "../../assets/images/icons/chevron_right-24px.svg";
 import "./InventoryPage.scss";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import "./InventoryPage.scss";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 function InventoryPage() {
 	document.title = "Inventory";
 	const inventoryId = useParams();
-	console.log(inventoryId, "id?");
+	const navigate = useNavigate();
 	const [inventoryItems, setInventoryItems] = useState([]);
 	const [warehouses, setWarehouses] = useState({});
 	const [loading, setLoading] = useState(true);
@@ -106,13 +106,14 @@ function InventoryPage() {
 								<div className="warehouses__content warehouses__content--long">
 									<h3 className="warehouses__mobile-header">Inventory Item</h3>
 									<div className="warehouses__name-wrapper">
-										{/* TODO: ADD NAVIGATION FROM ITEM TO ITEM DETAILS PAGE */}
-										<p className="warehouses__name">{item.item_name}</p>
-										<img
-											src={arrowRight}
-											alt="Arrow Right"
-											className="warehouses__name--icon"
-										/>
+										<NavLink to={`/inventories/${item.id}`}>
+											<p className="warehouses__name">{item.item_name}</p>
+											<img
+												src={arrowRight}
+												alt="Arrow Right"
+												className="warehouses__name--icon"
+											/>
+										</NavLink>
 									</div>
 								</div>
 								<div className="warehouses__content warehouses__content--long">
