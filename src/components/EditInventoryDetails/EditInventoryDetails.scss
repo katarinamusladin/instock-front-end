@@ -4,10 +4,9 @@
 @use "../../styles/partials/mixins" as *;
 
 .err {
-
     &__icon {
-        height: 16px;
-        width: 16px;
+        height: 1rem;
+        width: 1rem;
     }
 
     &__error-message {
@@ -33,7 +32,6 @@ input.error {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-
         background-color: $background-page;
 
         @include tablet {
@@ -47,34 +45,34 @@ input.error {
     }
 
     &__itemDetails {
-        padding: $mobile-margin;
         @include divider-top-thick;
+        padding: $mobile-margin;
         width: 100%;
 
         &--header {
-            padding-bottom: 1rem;
+            padding-bottom: $mobile-margin;
         }
     }
 
     &__itemAvail {
-        padding: $mobile-margin;
         @include divider-top-thick;
         width: 100%;
+        padding: $mobile-margin;
         flex-shrink: 0;
 
         &--header {
-            padding-bottom: 1rem;
+            padding-bottom: $mobile-margin;
         }
     }
 }
 
 .details {
     &__name {
-        padding: 8px;
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
 
         &:active,
         &:focus {
@@ -84,12 +82,12 @@ input.error {
     }
 
     &__description {
-        padding: 8px;
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
         padding-bottom: 5rem;
-        margin-bottom: 1rem;
-        padding-left: 16px;
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
 
         &:active,
         &:focus {
@@ -99,18 +97,17 @@ input.error {
     }
 
     &__category {
-        padding: 8px;
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
+        margin-bottom: $mobile-margin;
         color: $secondary-cloud;
-        padding-left: 16px;
+        padding-left: $mobile-margin;
 
         &:active,
         &:focus {
             border-color: $primary-indigo;
             color: $primary-black;
         }
-
     }
 }

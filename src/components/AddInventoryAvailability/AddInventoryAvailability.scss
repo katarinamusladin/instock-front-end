@@ -2,104 +2,106 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
-.err {
 
+.err {
     &__icon {
-        height: 16px;
-        width: 16px;
+        height: 1rem;
+        width: 1rem;
     }
 
-    &__error-message{
+    &__error-message {
         border-color: $label-red;
         color: $label-red;
         font-family: "Titillium Web";
     }
-
-
 }
 
 input.error {
     border-color: $label-red;
 }
 
-.availability__quantity.error, .availability__warehouse.error {
-  border-color: $label-red;
+.availability__quantity.error,
+.availability__warehouse.error {
+    border-color: $label-red;
 }
+
 .availability {
-    display:flex;
+    display: flex;
     flex-direction: column;
 
-
-    &__quantity{
-        padding: 8px;
+    &__quantity {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        &:active{
+        margin-bottom: $mobile-margin;
+        padding-left: $mobile-margin;
+
+        &:active {
             border-color: $primary-indigo;
         }
     }
-    &__warehouse{
-        padding: 8px;
+
+    &__warehouse {
+        padding: 0.5rem;
         border-radius: $border-radius;
         border-color: $secondary-cloud;
         margin-bottom: 1rem;
         color: $secondary-cloud;
-        padding-left: 16px;
-        &:active{
+        padding-left: 1rem;
+
+        &:active {
             border-color: $primary-indigo;
         }
-
     }
 
-    &__status{
+    &__status {
         display: flex;
         width: 100%;
         font-family: 'Titillium Web';
         color: $secondary-cloud;
         padding-bottom: 1rem;
 
-        &:active{
+        &:active {
             border-color: $primary-indigo;
         }
 
-
-
-        &--in{
-            display:flex;
+        &--in {
+            display: flex;
             justify-content: flex-start;
             padding-left: .5rem;
             padding-right: 8rem;
 
-
-
-            &:active{
+            &:active,
+            &:focus {
                 color: $primary-black;
             }
 
-            &::before{
-                color:$secondary-slate;
+            &::before {
+                color: $secondary-slate;
             }
 
-            &:active{
+            &:active,
+            &:focus {
                 border-color: $primary-indigo;
             }
 
-            @include tablet{
+            @include tablet {
                 padding-right: 5rem;
             }
         }
-        &--out{
+
+        &--out {
             display: flex;
             justify-content: flex-end;
             padding-left: .5rem;
 
-            &:active{
+            &:active,
+            &:focus {
                 color: $primary-black;
             }
 
-            &:active{
+            &:active,
+            &:focus {
                 border-color: $primary-indigo;
             }
         }

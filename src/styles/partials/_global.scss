@@ -6,12 +6,33 @@
 * {
     padding: 0;
     margin: 0;
-    outline:none;
+    outline: none;
     box-sizing: border-box;
-    // overflow-x:hidden;
-    
 }
 
 html {
-    background-color:$background-page;
+    background-color: $background-page;
+}
+
+body {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-family: 'Titillium Web', 'Times New Roman', Times, serif;
+    font-weight: 400;
+
+    @include tablet {
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+    }
+}
+
+a {
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:link,
+    &:visited {
+        text-decoration: none;
+    }
 }
