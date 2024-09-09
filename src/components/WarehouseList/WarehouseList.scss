@@ -7,9 +7,8 @@
   position: relative;
   top: -3rem;
   background-color: $primary-white;
-  margin: 1rem;
-  border: 1px solid rgba($background-page, 0.3);
-  box-shadow: 0px 2px 4px rgba($primary-black, 0.1);
+  border: .0625rem solid rgba($background-page, 0.3);
+  box-shadow: 0rem .125rem .25rem rgba($primary-black, 0.1);
   border-top: none;
 
   &__name-wrapper {
@@ -22,10 +21,14 @@
     font-weight: 600;
     font-size: 0.8rem;
     padding-left: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__informations {
-    padding-left:1rem;
+    padding-left: 1rem;
   }
 
   &__name--icon {
@@ -34,15 +37,14 @@
   }
 
   &__item {
-   
     padding: 1rem 0;
     border-top: 0.0938rem solid $secondary-cloud;
-
 
     @include tablet {
       @include flex-it(nowrap, space-between, normal, row);
       border-top: none;
       border-bottom: 0.0938rem solid $secondary-cloud;
+
       &:last-child {
         border-bottom: none;
       }
@@ -50,10 +52,7 @@
       &:hover {
         background-color: rgba($primary-indigo, 0.1);
       }
-      
-      
     }
-   
   }
 
   &__text-box {
@@ -133,7 +132,6 @@
   &__content {
     width: auto;
     box-sizing: border-box;
-  
 
     &--short {
       @include tablet {
@@ -154,7 +152,6 @@
     @include tablet {
       width: 10%;
       justify-content: space-around;
-      
     }
   }
 
@@ -181,7 +178,8 @@
       border: none;
       cursor: pointer;
       padding-left: 1rem;
-      padding-right:1rem;
+      padding-right: 1rem;
+
       @include tablet {
         padding-left: 0rem;
         padding-right: 0rem;

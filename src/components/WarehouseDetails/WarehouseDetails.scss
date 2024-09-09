@@ -4,46 +4,46 @@
 @use "../../styles/partials/mixins" as *;
 
 .details {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
-    &__content {
-        @extend .details;
-        @include divider-top-thick;
-        padding: $mobile-margin;
-        gap: $mobile-margin;
+  &__content {
+    @extend .details;
+    @include divider-top-thick;
+    padding: $mobile-margin;
+    gap: $mobile-margin;
 
-        @include tablet {
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 0;
-        }
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  &__address {
+    @include tablet {
+      @include divider-right-thick;
+      width: 50%;
     }
 
-    &__address {
-        @include tablet {
-            @include divider-right-thick;
-            width: 50%;
-        }
-
-        @include desktop {
-            width: 55%;
-        }
+    @include desktop {
+      width: 55%;
     }
+  }
 
-    &__contact {
-        @extend .details;
-        flex-direction: row;
-        justify-content: space-between;
+  &__contact {
+    @extend .details;
+    flex-direction: row;
+    justify-content: space-between;
 
-        @include tablet {
-            padding: 0 $tablet-margin;
-            gap: $tablet-margin;
-        }
+    @include tablet {
+      padding: 0 $tablet-margin;
+      gap: $tablet-margin;
     }
+  }
 
-    &__content-header {
-        color: $secondary-slate;
-    }
+  &__content-header {
+    color: $secondary-slate;
+  }
 }

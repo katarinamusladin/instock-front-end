@@ -4,6 +4,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .navbar {
+  width: 100%;
   height: 8.5rem;
   display: flex;
   background-color: $background-header;
@@ -12,60 +13,69 @@
   font-weight: 600;
 
   &__container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    width: 100%;
 
     @include tablet {
       height: 5.75rem;
       flex-direction: row;
       margin: 0 1%;
     }
+
     @include desktop {
       margin: 0 8%;
     }
   }
+
   &__logo-container {
     @include tablet {
       margin-left: 1.5625rem;
     }
   }
+
   &__img {
     width: 8.0369rem;
     height: 1.75rem;
     margin-top: 1.5625rem;
+
     @include tablet {
       margin-top: 0.625rem;
     }
   }
+
   &__links {
     width: 100%;
 
     @include tablet {
       width: 28%;
     }
+
     @include desktop {
       width: 25%;
     }
   }
+
   &__link {
     margin: 0 0.9375rem;
-    color:red;
+    color: red;
   }
+
   &__list {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
     padding: 0;
     margin-top: 1rem;
-    
+
     @include tablet {
       margin: 0.625rem 0 0 0;
       width: 100%;
     }
   }
+
   &__warehouses {
     color: $secondary-slate;
     font-size: 1rem;
@@ -73,11 +83,17 @@
     width: 50%;
     padding: 0.5rem 1rem;
     text-align: center;
+
     @include tablet {
       width: 30%;
       margin: 0;
     }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
+
   &__inventory {
     color: $secondary-slate;
     font-size: 1rem;
@@ -85,19 +101,26 @@
     width: 50%;
     padding: 0.5rem 1rem;
     text-align: center;
+
     @include tablet {
       width: 30%;
       margin: 0;
     }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
+
   &__warehouses--active {
     font-weight: bold;
     background-color: $primary-black;
     color: $primary-white;
     border-radius: 1.25rem;
     padding: 0.3rem 2rem;
-    
+
   }
+
   &__inventory--active {
     font-weight: bold;
     background-color: $primary-black;

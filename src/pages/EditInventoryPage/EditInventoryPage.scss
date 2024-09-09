@@ -21,7 +21,7 @@
     //TODO: INCLUDE DESKTOP MARGINS
 
     &__page {
-        @include page-content;
+        // @include page-content;
         @include page-shadow;
         width: 100%;
         display: flex;

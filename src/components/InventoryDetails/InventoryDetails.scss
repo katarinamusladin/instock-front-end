@@ -4,91 +4,91 @@
 @use "../../styles/partials/mixins" as *;
 
 .item-details {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    @include divider-bottom;
+  }
+
+  &__content {
+    @extend .item-details;
+    padding: $mobile-margin;
+    gap: $mobile-margin;
+
+    @include tablet {
+      flex-direction: row;
+      padding: $tablet-margin;
+      gap: 0;
+    }
+  }
+
+  &__left {
     display: flex;
     flex-direction: column;
+    gap: $mobile-margin;
 
-    &__header {
-        @include divider-bottom;
+    @include tablet {
+      @include divider-right-thick;
+      width: 50%;
+      gap: $tablet-margin;
+      padding-right: $tablet-margin;
+      justify-content: space-between;
     }
 
-    &__content {
-        @extend .item-details;
-        padding: $mobile-margin;
-        gap: $mobile-margin;
+    @include desktop {
+      width: 55%;
+    }
+  }
 
-        @include tablet {
-            flex-direction: row;
-            padding: $tablet-margin;
-            gap: 0;
-        }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-margin;
+
+    @include tablet {
+      width: 50%;
+      gap: $tablet-margin;
+      padding-right: $tablet-margin;
+      justify-content: space-between;
     }
 
-    &__left {
-        display: flex;
-        flex-direction: column;
-        gap: $mobile-margin;
-
-        @include tablet {
-            @include divider-right-thick;
-            width: 50%;
-            gap: $tablet-margin;
-            padding-right: $tablet-margin;
-            justify-content: space-between;
-        }
-
-        @include desktop {
-            width: 55%;
-        }
+    @include desktop {
+      width: 55%;
     }
+  }
 
-    &__right {
-        display: flex;
-        flex-direction: column;
-        gap: $mobile-margin;
+  &__stock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-        @include tablet {
-            width: 50%;
-            gap: $tablet-margin;
-            padding-right: $tablet-margin;
-            justify-content: space-between;
-        }
-
-        @include desktop {
-            width: 55%;
-        }
+    @include tablet {
+      padding: 0 $tablet-margin;
+      gap: $tablet-margin;
     }
+  }
 
-    &__stock {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+  &__content-header {
+    color: $secondary-slate;
+  }
 
-        @include tablet {
-            padding: 0 $tablet-margin;
-            gap: $tablet-margin;
-        }
+  &__text {
+    padding: 0;
+  }
+
+  &__tag {
+    @include instock;
+
+    &--out {
+      @include outofstock;
     }
+  }
 
-    &__content-header {
-        color: $secondary-slate;
+  &__location {
+    @include tablet {
+      padding: 0 $tablet-margin;
     }
-
-    &__text {
-        padding: 0;
-    }
-
-    &__tag {
-        @include instock;
-
-        &--out {
-            @include outofstock;
-        }
-    }
-
-    &__location {
-        @include tablet {
-            padding: 0 $tablet-margin;
-        }
-    }
+  }
 }
