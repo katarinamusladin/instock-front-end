@@ -108,7 +108,7 @@ function WarehouseInventoryList({ warehouseId }) {
               </div>
             </div>
             <div className="warehouses__action">
-              <h3 className="warehouses__mobile-header active">ACTIONS</h3>
+              <h3 className="warehouses__mobile-header active1">ACTIONS</h3>
               <button
                 className="warehouses__icon-button"
                 onClick={() => handleDeleteClick(item)}
