@@ -7,15 +7,9 @@
   position: relative;
   top: -3rem;
   background-color: $primary-white;
-  margin: 1rem;
   border: .0625rem solid rgba($background-page, 0.3);
   box-shadow: 0rem .125rem .25rem rgba($primary-black, 0.1);
   border-top: none;
-
-  @include desktop {
-    margin-right: 3.9375rem;
-    margin-left: 3.9375rem;
-  }
 
   &__name-wrapper {
     display: flex;
@@ -27,6 +21,7 @@
     font-weight: 600;
     font-size: 0.8rem;
     padding-left: 1rem;
+
     &:hover {
       text-decoration: underline;
     }
@@ -49,6 +44,7 @@
       @include flex-it(nowrap, space-between, normal, row);
       border-top: none;
       border-bottom: 0.0938rem solid $secondary-cloud;
+
       &:last-child {
         border-bottom: none;
       }
@@ -183,6 +179,7 @@
       cursor: pointer;
       padding-left: 1rem;
       padding-right: 1rem;
+
       @include tablet {
         padding-left: 0rem;
         padding-right: 0rem;
