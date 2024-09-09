@@ -141,7 +141,7 @@ function WarehouseList() {
 					onClose={handleCloseModal}
 					title={`Delete ${selectedWarehouse?.warehouse_name} warehouse?`}
 					message={`Please confirm that you’d like to delete the  ${selectedWarehouse.warehouse_name} from the list of warehouses. You won’t be able to undo this action.`}
-					onDeleteConfirm={confirmDeleteWarehouse}
+					onConfirm={confirmDeleteWarehouse}
 				/>
 			)}
 		</div>

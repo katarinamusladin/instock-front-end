@@ -15,7 +15,7 @@ function Header() {
 					<ul className="navbar__list">
 						<li>
 							<NavLink
-								to="/home"
+								to="/"
 								className={({ isActive }) =>
 									isActive
 										? "navbar__link navbar__warehouses navbar__warehouses--active"
