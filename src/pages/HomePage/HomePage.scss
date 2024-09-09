@@ -15,11 +15,9 @@
         @include tablet {
             padding: 0 $tablet-margin;
         }
-
-        //TODO: INCLUDE DESKTOP MARGINS
     }
 
-    &__form {
-        @include page-content;
+    &__list {
+        top: -2rem;
     }
 }

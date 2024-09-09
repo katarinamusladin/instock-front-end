@@ -4,12 +4,11 @@ export default function HomePage() {
 	document.title = "Home";
 	return (
 		<>
-			{/* TODO: remove comments if not used */}
-			{/* <article className="home__container">
-				<section className="home__list">
-			{/* </section>
-			</article>  */}
-			<WareHouseList />
+			<article className="home__container">
+				<section>
+					<WareHouseList />
+				</section>
+			</article>
 		</>
 	);
 }
